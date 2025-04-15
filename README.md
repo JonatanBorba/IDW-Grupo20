@@ -1,2 +1,5 @@
 # IDW-Grupo20
-Grupo 20 IDW
+Agustina Castro
+Ignacio Morales
+Sebastian Juan Augusto Nuñez
+Jonatan Borba
