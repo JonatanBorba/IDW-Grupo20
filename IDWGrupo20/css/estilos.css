@@ -4,8 +4,7 @@
     box-sizing: border-box;
 
 }
-body 
-{
+body {
     background-color: #fff;
     font-family: Arial, sans-serif;
     margin:15px;
@@ -73,15 +72,11 @@ header{
     background-color: #fff;
     font-family: Arial, sans-serif;
     margin:0%;
-    
 } 
 
 main h1{
     text-align: center;
     text-shadow: #333;
-    
-   
-
  }
 
 section ul{
@@ -94,12 +89,9 @@ section ul{
     border-radius: 50px;
     margin-top: 10px;
     margin-bottom:15px ;
-    margin-right: 100px;
-    
-
-    
-  
+    margin-right: 100px;  
 }
+
 section ul li{
     background-color: rgb(190, 190, 200);
     padding: 10px;
@@ -107,13 +99,12 @@ section ul li{
     display: flex;
     flex-direction: column;
     text-align: center;
-
 }
+
 section ul img{
     width: 320px;
     height:300px;
-    border-radius:20px;
-   
+    border-radius:20px;   
 }    
     
 /* Footer del sitio*/
@@ -146,7 +137,6 @@ footer {
 }
 
 .ftr_sitio a img{
-/*    display: block;*/
     padding: 5px;
     text-decoration: none;
     color: white;
@@ -167,4 +157,3 @@ footer {
     transform: scale(1.1); 
     transition: transform 0.2s ease;
 }
-
