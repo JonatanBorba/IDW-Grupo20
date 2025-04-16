@@ -79,10 +79,30 @@ header{
 main h1{
     text-align: center;
     text-shadow: #333;
-    
-   
+       
 
  }
+
+
+section.sector_ctc{
+    display:inline-table;
+    width:350px;
+    height: 400px;
+    padding: 5%;
+    margin: 1%;
+    text-align: center;
+    align-items: center;
+}
+
+i{
+    width:150px;
+    height:150px;
+    font-size: 150px;
+    font-style: italic;
+    color:darkorchid;
+
+}
+
 
 section ul{
     display: grid;
