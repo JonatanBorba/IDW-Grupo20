@@ -1,4 +1,4 @@
-* {
+** {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
@@ -13,13 +13,99 @@ body {
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    margin-left: 5px;
 }
-
+.imagenEmpresa {     
+    display: flex;
+    list-style: none;
+    background-image: url(../img/globos.jpg);
+    background-size: cover;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;    
+    font-family: Arial, Helvetica, sans-serif;
+    height: 210px;
+   
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa {
+        display: flex;
+        list-style: none;
+        background-image: url(../img/globos.jpg);
+        background-size: cover;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;    
+        font-family: Arial, Helvetica, sans-serif;
+        height: 110px;
+    }
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa {
+        display: flex;
+        list-style: none;
+        background-image: url(../img/globos.jpg);
+        background-size: cover;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;    
+        font-family: Arial, Helvetica, sans-serif;
+        height: 60px;
+    }
+}
+.imagenEmpresa img{
+   display:flex;
+   width: 200px;
+   height: 200px;  
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa img{
+        display:flex;
+        width: 100px;
+        height: 100px;  
+    }
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa img{
+        display:flex;
+        width: 50px;
+        height: 50px;  
+    }
+}
+.imagenEmpresa h1 {
+    color: #fff;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 0px;
+    text-align: center;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa h1 {
+        color: #fff;
+        font-size: 30px;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 0px;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa h1 {
+        color: #fff;
+        font-size: 15px;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 0px;
+        text-align: center;
+    }
+    
+}    
+    
 /* Estilos del menú */
 .menu {
+    width: 100%;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,12 +114,71 @@ body {
     padding: 0px;
     background-color: #333;
 }
-
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .menu {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        background-color: #333;
+    }    
+}
+@media screen and (min-width: 100px) and (max-width: 400px) {
+    .menu {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        background-color: #333;
+    } 
+}
 .menu li {
     flex: 1;
     text-align: center;
 }
-
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .menu li {
+        flex: 1;
+        text-align: center;
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .menu li {
+        flex: 1;
+        text-align: center;
+    }    
+}
+.menu img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 10px;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .menu img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 3px;
+    }    
+    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .menu img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 2px;
+    }    
+}
 .menu a {
     display: block;
     padding: 5px;
@@ -41,64 +186,168 @@ body {
     color: white;
     font-size: 18px;
 }
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .menu a {
+        display: block;
+        padding: 3px;
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+    }    
+    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .menu a {
+        display: block;
+        padding: 2px;
+        text-decoration: none;
+        color: white;
+        font-size: 9px;
+    }    
+}
+/*  Estilo de la Barra de Navegación */
+nav{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: #333;
 
-.menu a:hover {
-    background-color: rgb(135, 135, 145);
-    border-radius: 5%;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    nav{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        background-color: #333;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    nav{
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        background-color: #333;    
+    }    
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 50px;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    nav ul{
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 20px;    
+    }    
+
+    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    nav ul{
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 5px;    
+    }    
+}
+nav a:hover {
+    
+    text-decoration: underline;
+    background-color: rgb(39, 39, 41);
+    border-radius: 30%;
     border-color: #fff;
-    box-shadow: 0 0 0 .20rem rgba(255, 200, 255, .25);
-    transform: scale(1.1);
-}
-
-.btn_sarch_inicio {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.btn_sarch_inicio img {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: transparent;
-    display: block;
-}
-
-.btn_sarch_inicio:hover img {
     transform: scale(1.2);
-    transition: transform 0.2s ease;
+    transition: color 1.3s ease;
+    color: #8d8e96;
 }
-
-header {
-    background-color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 0%;
-
-}
-
+/* Estilo del Main Pagina Principal*/
 main h1 {
     text-align: center;
     text-shadow: #333;
+    font-size: 50px;
 }
-
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    main h1 {
+        text-align: center;
+        text-shadow: #333;
+        font-size: 30px;    
+    }    
+    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    main h1 {
+        text-align: center;
+        text-shadow: #333;
+        font-size: 15px;    
+    }    
+}
 section ul {
-    display: grid;
+    display:flex;
     list-style: none;
     display: inline-table;
     padding: 20px;
     background-color: #d7dadc;
     margin-left: 20px;
     border-radius: 50px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 15px;
+    justify-content: space-between;
     margin-right: 100px;
-
-
-
-
+    margin-left: 100px;
 }
-
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    section ul {
+        display:flex;
+        list-style: none;
+        display: inline-table;
+        padding: 20px;
+        background-color: #d7dadc;
+        margin-left: 20px;
+        border-radius: 50px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        justify-content: space-between;
+        margin-right: 50px;
+        margin-left: 50px;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    section ul {
+        display:flex;
+        list-style: none;
+        display: inline-table;
+        padding: 20px;
+        background-color: #d7dadc;
+        margin-left: 20px;
+        border-radius: 50px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        justify-content: space-between;
+        margin-right: 10px;
+        margin-left: 10px;    
+    }    
+}   
 section ul li {
     background-color: rgb(190, 190, 200);
     padding: 10px;
@@ -106,21 +355,190 @@ section ul li {
     display: flex;
     flex-direction: column;
     text-align: center;
-
+    
+}
+section ul li strong {
+    color: #342f2f;
+    font-size: 20px;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    section ul li strong {
+        color: #342f2f;
+        font-size: 12px;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    section ul li strong {
+        color: #342f2f;
+        font-size: 8px;    
+    }    
 }
 
 section ul img {
-    width: 320px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     border-radius: 20px;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    section ul img {
+        width: 350px;
+        height: 350px;
+        border-radius: 15px;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    section ul img {
+        width: 150px;
+        height: 150px;
+        border-radius: 12px;    
+    }    
+}
+section p{
+    text-align: center;
+    font-size: 15px;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    section p{
+        text-align: center;
+        font-size: 10px;    
+    }    
+}   
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    section p{
+        text-align: center;
+        font-size: 5px;    
+    }    
+}
+section h5{
+    text-align: center;
+    color: #342f2f;
+    font-size: 15px;    
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    section h5{
+        text-align: center;
+        color: #342f2f;
+        font-size: 10px;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    section h5{
+        text-align: center;
+        color: #342f2f;
+        font-size: 5px;    
+    }    
+}
+/* Estilo del Main Pagina Institucional */
+.centrado p{
+    display: flex;
+    text-align: justify;
+    font-size: 30px;
+    color: #0b0101;
+    margin: 0px;
+    padding: 0px;
 
 }
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .centrado p{
+        display: flex;
+        text-align: justify;
+        font-size: 18px;
+        color: #0b0101;
+        margin: 0px;
+        padding: 0px;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .centrado p{
+        display: flex;
+        text-align: justify;
+        font-size: 10px;
+        color: #0b0101;
+        margin: 0px;
+        padding: 0px;    
+    }    
+}
 
-/* Footer del sitio*/
+.centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    width: 90%;
+    margin:auto;
+    text-align: justify; 
+    padding: 100px;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .centrado {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+        width: 100%;
+        margin:auto;
+        text-align: justify; 
+        padding: 30px;    
+    }   
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .centrado {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+        width: 100%;
+        margin:auto;
+        text-align: justify; 
+        padding: 20px;    
+    }   
+    
+}     /*  */
+ /*Estilo del Main Pagina Contacto */
+ .sector_ctc {
+    display: flex;
+    text-align: center;    
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    
+ } 
+.sector_ctc li{
+    background-color: #d7dadc;
+}    
+
+
+    /* Estilo Footer del sitio*/
 footer {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 70px;
     background-color: #333;
     color: white;
     text-align: center;
+}  
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    footer {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 50px;
+        background-color: #333;
+        color: white;
+        text-align: center;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    footer {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 30px;
+        background-color: #333;
+        color: white;
+        text-align: center;    
+    }    
 }
 
 .ftr_sitio {
@@ -131,22 +549,56 @@ footer {
     margin: 0px;
     padding: 0px;
     background-color: #333;
-    list-style-type: none;
+    
 }
 
 .ftr_sitio li {
+    display: flex;
+    text-align: center;
     padding: 5px;
+    align-items: center;
+    /* justify-items: space-around; */
+    
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .ftr_sitio li {
+        display: flex;
+        text-align: center;
+        padding: 3px;
+        align-items: center;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .ftr_sitio li {
+        display: flex;
+        text-align: center;
+        padding: 2px;
+        align-items: center;    
+    }    
+
 }
 
 .ftr_sitio p {
     color: white;
     font-size: 18px;
-    padding: auto;
+    /* padding: auto; */
     text-align: center;
+}
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .ftr_sitio p {
+        color: white;
+        font-size: 12px;    
+    }    
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .ftr_sitio p {
+        color: white;
+        font-size: 9px;    
+    }    
 }
 
 .ftr_sitio a img {
-    /*    display: block;*/
+    display: block;
     padding: 5px;
     text-decoration: none;
     color: white;
@@ -157,6 +609,31 @@ footer {
     border-radius: 50%;
     align-items: center;
 }
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .ftr_sitio a img {
+        display: block;
+        padding: 3px;
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+        width: 20px;
+        height: 20px;
+        margin: 3px;    
+    }    
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .ftr_sitio a img {
+        display: block;
+        padding: 2px;
+        text-decoration: none;
+        color: white;
+        font-size: 9px;
+        width: 10px;
+        height: 10px;
+        margin: 2px;    
+    }
+  
+}
+
 
 .ftr_sitio img:hover {
     transform: scale(1.2);
@@ -181,4 +658,4 @@ footer {
     padding: 100px;
 }
 
-  
+}
