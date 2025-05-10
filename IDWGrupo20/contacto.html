@@ -3,30 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos.css" type="text/css" media="screen">
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon">
     <title>Alquiler de casas para eventos - IDW - Contacto</title>
 </head>
 <body>
-    <header>
-        <ul class="menu">
-            <img src="img/Logo.png" alt="IDW Logo" class="logo"></a></li>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="institucional.html">Institucional</a></li>
-            <li><a href="contacto.html">Contacto</a></li>        </ul>
-    </header>
-    <main>
-        <h1>Comunicate con nosotros!!!</h1>
-        <br>
-        <br>
-        <p> CorreoElectrónico:<a href="idw@correo.com.at">idw@correo.com.ar</a></p>
-        <p> Telefono:</p>
-        <br>
-        <br>
-    </main>   
-    <!-- Pie del sitio-->
-    <footer>
-        <ul class="ftr_sitio">
+<header>
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container menu">
+            <a class="navbar-brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Logo" width="40" height="40"> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="institucional.html">Institucional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header> 
+<main>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Contáctanos</h2>
+        <form>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="tucorreo@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-20">Enviar</button>
+        </form>
+    </div>
+</main>   
+    <!-- Pie del sitio -->
+<footer class="bg-light text-center py-3">
+    <div class="container">
+        <ul class="mb-0 ftr_sitio">
             <li><p>&copy; 2025 IDW - Grupo20.</p></li>
             <li>
                 <a href="https://facebook.com">
@@ -44,5 +77,10 @@
                 </a>
             </li>
         </ul>
-    </footer>
+    </div>
+</footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
+</html>

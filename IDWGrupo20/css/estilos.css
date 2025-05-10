@@ -19,13 +19,15 @@ body {
 
   /* Estilos del menú */
 .menu{
-    display: flex;
+/*  
     justify-content: center;
     align-items: center;
+    display: flex;
     list-style-type: none;
     margin: 0px;
-    padding: 0px;
-    background-color: #333;
+    padding: 10px;*/
+    background-color: rgb(35 83 131);
+    border-radius: 10px;
 }
 
 .menu li {
@@ -77,7 +79,7 @@ header{
 main h1{
     text-align: center;
     text-shadow: #333;
- }
+}
 
 section ul{
     display: grid;
@@ -121,8 +123,10 @@ footer {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
-    background-color: #333;
     list-style-type: none; 
+    background-color: rgb(35 83 131);
+    border-radius: 10px;
+    border-color: black;
 }
 
 .ftr_sitio li {
