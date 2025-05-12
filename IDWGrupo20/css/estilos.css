@@ -282,13 +282,13 @@ nav a:hover {
     color: #8d8e96;
 }
 /* Estilo del Main Pagina Principal*/
-main h1 {
+/* main h1 {
     text-align: center;
     text-shadow: #333;
     font-size: 50px;
 }
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    main h1 {
+@media screen and (min-width: 400px) and (max-width: 800px)  */
+    /* main h1 {
         text-align: center;
         text-shadow: #333;
         font-size: 30px;    
@@ -427,7 +427,7 @@ section h5{
         color: #342f2f;
         font-size: 5px;    
     }    
-}
+} */
 /* Estilo del Main Pagina Institucional */
 .centrado p{
     display: flex;
@@ -557,7 +557,7 @@ footer {
     text-align: center;
     padding: 5px;
     align-items: center;
-    /* justify-items: space-around; */
+   
     
 }
 @media screen and (min-width: 400px) and (max-width: 800px) {
