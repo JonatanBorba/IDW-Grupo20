@@ -1,14 +1,13 @@
-** {
+* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 
 }
-
 body {
     background-color: #fff;
     font-family: Arial, sans-serif;
-    margin: 15px;
+    margin:15px;
     padding: 0;
 }
 
@@ -18,6 +17,7 @@ body {
     border-radius: 50%;
     margin-left: 5px;
 }
+
 .imagenEmpresa {     
     display: flex;
     list-style: none;
@@ -28,8 +28,8 @@ body {
     align-items: center;    
     font-family: Arial, Helvetica, sans-serif;
     height: 210px;
-   
 }
+
 @media screen and (min-width: 400px) and (max-width: 800px) {
     .imagenEmpresa {
         display: flex;
@@ -56,11 +56,13 @@ body {
         height: 60px;
     }
 }
+
 .imagenEmpresa img{
-   display:flex;
-   width: 200px;
-   height: 200px;  
+    display:flex;
+    width: 200px;
+    height: 200px;  
 }
+
 @media screen and (min-width: 400px) and (max-width: 800px) {
     .imagenEmpresa img{
         display:flex;
@@ -68,6 +70,7 @@ body {
         height: 100px;  
     }
 }
+
 @media screen and (min-width: 150px) and (max-width: 400px) {
     .imagenEmpresa img{
         display:flex;
@@ -75,6 +78,7 @@ body {
         height: 50px;  
     }
 }
+
 .imagenEmpresa h1 {
     color: #fff;
     font-size: 70px;
@@ -82,6 +86,7 @@ body {
     padding: 0px;
     text-align: center;
 }
+
 @media screen and (min-width: 400px) and (max-width: 800px) {
     .imagenEmpresa h1 {
         color: #fff;
@@ -91,6 +96,7 @@ body {
         text-align: center;
     }
 }
+
 @media screen and (min-width: 150px) and (max-width: 400px) {
     .imagenEmpresa h1 {
         color: #fff;
@@ -98,87 +104,20 @@ body {
         text-shadow: 2px 2px 4px #000000;
         padding: 0px;
         text-align: center;
-    }
-    
-}    
-    
-/* Estilos del menú */
-.menu {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-    background-color: #333;
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .menu {
-        width: 100%;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        background-color: #333;
     }    
 }
-@media screen and (min-width: 100px) and (max-width: 400px) {
-    .menu {
-        width: 100%;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        background-color: #333;
-    } 
+
+  /* Estilos del menú */
+.menu{
+    background-color: rgb(35 83 131);
+    border-radius: 10px;
 }
+
 .menu li {
     flex: 1;
     text-align: center;
 }
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .menu li {
-        flex: 1;
-        text-align: center;
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    .menu li {
-        flex: 1;
-        text-align: center;
-    }    
-}
-.menu img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin: 10px;
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .menu img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin: 3px;
-    }    
-    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    .menu img {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        margin: 2px;
-    }    
-}
+
 .menu a {
     display: block;
     padding: 5px;
@@ -186,359 +125,149 @@ body {
     color: white;
     font-size: 18px;
 }
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .menu a {
-        display: block;
-        padding: 3px;
-        text-decoration: none;
-        color: white;
-        font-size: 12px;
-    }    
-    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    .menu a {
-        display: block;
-        padding: 2px;
-        text-decoration: none;
-        color: white;
-        font-size: 9px;
-    }    
-}
-/*  Estilo de la Barra de Navegación */
-nav{
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-    background-color: #333;
 
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    nav{
-        width: 100%;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        background-color: #333;    
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    nav{
-        width: 100%;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style-type: none;
-        margin: 0px;
-        padding: 0px;
-        background-color: #333;    
-    }    
-}
-nav ul{
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 50px;
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    nav ul{
-        display: flex;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        gap: 20px;    
-    }    
-
-    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    nav ul{
-        display: flex;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        gap: 5px;    
-    }    
-}
-nav a:hover {
-    
-    text-decoration: underline;
-    background-color: rgb(39, 39, 41);
-    border-radius: 30%;
+.menu a:hover {
+    background-color: rgb(135, 135, 145);
+    border-radius: 5%;
     border-color: #fff;
-    transform: scale(1.2);
-    transition: color 1.3s ease;
-    color: #8d8e96;
+    box-shadow: 0 0 0 .20rem rgba(255, 200, 255, .25);    
+    transform: scale(1.1); 
 }
-/* Estilo del Main Pagina Principal*/
-main h1 {
+
+.btn_sarch_inicio{
+    border: none;
+    background-color: transparent; 
+    cursor: pointer;
+    padding: 5px;
+}
+
+.btn_sarch_inicio img {
+    width: 20px;
+    height: 20px; 
+    border-radius: 50%;  
+    background-color: transparent;
+    display: block;
+}
+
+.btn_sarch_inicio:hover img {
+    transform: scale(1.2); 
+    transition: transform 0.2s ease;
+}
+header{
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    margin:0%;
+} 
+
+main h1{
     text-align: center;
     text-shadow: #333;
-    font-size: 50px;
 }
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    main h1 {
-        text-align: center;
-        text-shadow: #333;
-        font-size: 30px;    
-    }    
-    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    main h1 {
-        text-align: center;
-        text-shadow: #333;
-        font-size: 15px;    
-    }    
-}
-section ul {
-    display:flex;
-    list-style: none;
+
+section ul{
+    display: grid;
+    list-style:none;
     display: inline-table;
-    padding: 20px;
+    padding:20px;
     background-color: #d7dadc;
     margin-left: 20px;
     border-radius: 50px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    justify-content: space-between;
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-top: 10px;
+    margin-bottom:15px ;
+    margin-right: 100px;  
 }
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    section ul {
-        display:flex;
-        list-style: none;
-        display: inline-table;
-        padding: 20px;
-        background-color: #d7dadc;
-        margin-left: 20px;
-        border-radius: 50px;
-        margin-top: 20px;
-        margin-bottom: 15px;
-        justify-content: space-between;
-        margin-right: 50px;
-        margin-left: 50px;    
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    section ul {
-        display:flex;
-        list-style: none;
-        display: inline-table;
-        padding: 20px;
-        background-color: #d7dadc;
-        margin-left: 20px;
-        border-radius: 50px;
-        margin-top: 20px;
-        margin-bottom: 15px;
-        justify-content: space-between;
-        margin-right: 10px;
-        margin-left: 10px;    
-    }    
-}   
-section ul li {
+
+section ul li{
     background-color: rgb(190, 190, 200);
     padding: 10px;
-    border-radius: 50px;
+    border-radius:50px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    
-}
-section ul li strong {
-    color: #342f2f;
-    font-size: 20px;
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    section ul li strong {
-        color: #342f2f;
-        font-size: 12px;    
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    section ul li strong {
-        color: #342f2f;
-        font-size: 8px;    
-    }    
 }
 
-section ul img {
-    width: 500px;
-    height: 500px;
-    border-radius: 20px;
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    section ul img {
-        width: 350px;
-        height: 350px;
-        border-radius: 15px;    
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    section ul img {
-        width: 150px;
-        height: 150px;
-        border-radius: 12px;    
-    }    
-}
-section p{
-    text-align: center;
-    font-size: 15px;
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    section p{
-        text-align: center;
-        font-size: 10px;    
-    }    
-}   
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    section p{
-        text-align: center;
-        font-size: 5px;    
-    }    
-}
-section h5{
-    text-align: center;
-    color: #342f2f;
-    font-size: 15px;    
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    section h5{
-        text-align: center;
-        color: #342f2f;
-        font-size: 10px;    
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    section h5{
-        text-align: center;
-        color: #342f2f;
-        font-size: 5px;    
-    }    
-}
-/* Estilo del Main Pagina Institucional */
-.centrado p{
-    display: flex;
-    text-align: justify;
-    font-size: 30px;
-    color: #0b0101;
-    margin: 0px;
-    padding: 0px;
+section ul img{
+    width: 320px;
+    height:300px;
+    border-radius:20px;   
+}    
 
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .centrado p{
-        display: flex;
-        text-align: justify;
-        font-size: 18px;
-        color: #0b0101;
-        margin: 0px;
-        padding: 0px;    
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    .centrado p{
-        display: flex;
-        text-align: justify;
-        font-size: 10px;
-        color: #0b0101;
-        margin: 0px;
-        padding: 0px;    
-    }    
-}
-
-.centrado {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    width: 90%;
-    margin:auto;
-    text-align: justify; 
-    padding: 100px;
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .centrado {
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        justify-content: center; 
-        width: 100%;
-        margin:auto;
-        text-align: justify; 
-        padding: 30px;    
-    }   
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    .centrado {
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        justify-content: center; 
-        width: 100%;
-        margin:auto;
-        text-align: justify; 
-        padding: 20px;    
-    }   
-    
-}     /*  */
  /*Estilo del Main Pagina Contacto */
- .sector_ctc {
+.sector_ctc {
     display: flex;
     text-align: center;    
     justify-content: center;
     align-items: center;
     padding: 0;
     
- } 
+} 
 .sector_ctc li{
     background-color: #d7dadc;
-}    
+}
 
-
-    /* Estilo Footer del sitio*/
-footer {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 70px;
-    background-color: #333;
+ /* institucional */
+.hero {
+    position: relative;
+    background: linear-gradient(to right, #0a2c48, #2680c2);
     color: white;
     text-align: center;
-}  
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    footer {
-        display: grid;
-        place-items: center;
-        width: 100%;
-        height: 50px;
-        background-color: #333;
-        color: white;
-        text-align: center;    
-    }    
+    padding: 20px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
 }
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    footer {
-        display: grid;
-        place-items: center;
-        width: 100%;
-        height: 30px;
-        background-color: #333;
-        color: white;
-        text-align: center;    
-    }    
+
+.contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.testimonio {
+    background-color: #eef6fa;
+    border-radius: 50%;
+    padding: 40px;
+    width: 300px;
+    max-width: 80%;
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.testimonio strong {
+    display: block;
+    margin-top: 15px;
+    font-weight: 700;
+    color: #1c2b39;
+}
+
+.texto {
+    max-width: 600px;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.texto h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #0a2c48;
+}
+
+.texto p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+} 
+
+/* Footer del sitio*/
+footer {
+    background-color: #333; 
+    color: white; 
+    text-align: center;
 }
 
 .ftr_sitio {
@@ -548,114 +277,41 @@ footer {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
-    background-color: #333;
-    
+    list-style-type: none; 
+    background-color: rgb(35 83 131);
+    border-radius: 10px;
+    border-color: black;
 }
 
 .ftr_sitio li {
-    display: flex;
-    text-align: center;
     padding: 5px;
-    align-items: center;
-    /* justify-items: space-around; */
-    
-}
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .ftr_sitio li {
-        display: flex;
-        text-align: center;
-        padding: 3px;
-        align-items: center;    
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    .ftr_sitio li {
-        display: flex;
-        text-align: center;
-        padding: 2px;
-        align-items: center;    
-    }    
-
 }
 
 .ftr_sitio p {
-    color: white;
+    color: white; 
     font-size: 18px;
-    /* padding: auto; */
+    padding: auto;
     text-align: center;
 }
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .ftr_sitio p {
-        color: white;
-        font-size: 12px;    
-    }    
-}
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    .ftr_sitio p {
-        color: white;
-        font-size: 9px;    
-    }    
-}
 
-.ftr_sitio a img {
-    display: block;
+.ftr_sitio a img{
     padding: 5px;
     text-decoration: none;
     color: white;
     font-size: 18px;
-    width: 30px;
-    height: 30px;
+    width: 30px; 
+    height: 30px; 
     margin: 10px;
     border-radius: 50%;
     align-items: center;
 }
-@media screen and (min-width: 400px) and (max-width: 800px) {
-    .ftr_sitio a img {
-        display: block;
-        padding: 3px;
-        text-decoration: none;
-        color: white;
-        font-size: 12px;
-        width: 20px;
-        height: 20px;
-        margin: 3px;    
-    }    
-@media screen and (min-width: 150px) and (max-width: 400px) {
-    .ftr_sitio a img {
-        display: block;
-        padding: 2px;
-        text-decoration: none;
-        color: white;
-        font-size: 9px;
-        width: 10px;
-        height: 10px;
-        margin: 2px;    
-    }
-  
-}
-
 
 .ftr_sitio img:hover {
-    transform: scale(1.2);
+    transform: scale(1.2); 
     transition: transform 0.2s ease;
 }
 
 .ftr_sitio p:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); 
     transition: transform 0.2s ease;
-}
-
-
-.centrado {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    width: 80%;
-    height: 50vh; 
-    margin:auto;
-    text-align: justify; 
-    padding: 100px;
-}
-
 }
