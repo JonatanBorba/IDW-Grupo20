@@ -262,7 +262,7 @@ section ul img{
     margin-bottom: 20px;
     text-align: justify;
 } 
-
+}
 /* Footer del sitio*/
 footer {
     background-color: #333; 
@@ -314,4 +314,3 @@ footer {
 .ftr_sitio p:hover {
     transform: scale(1.1); 
     transition: transform 0.2s ease;
-}
