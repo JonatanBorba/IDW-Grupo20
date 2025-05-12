@@ -4,7 +4,6 @@
     box-sizing: border-box;
 
 }
-
 body {
     background-color: #fff;
     font-family: Arial, sans-serif;
@@ -18,15 +17,17 @@ body {
     border-radius: 50%;
 }
 
-/* Estilos del menú */
-.menu {
-    display: flex;
+  /* Estilos del menú */
+.menu{
+/*  
     justify-content: center;
     align-items: center;
+    display: flex;
     list-style-type: none;
     margin: 0px;
-    padding: 0px;
-    background-color: #333;
+    padding: 10px;*/
+    background-color: rgb(35 83 131);
+    border-radius: 10px;
 }
 
 .menu li {
@@ -73,16 +74,15 @@ body {
 header {
     background-color: #fff;
     font-family: Arial, sans-serif;
-    margin: 0%;
+    margin:0%;
+} 
 
-}
-
-main h1 {
+main h1{
     text-align: center;
     text-shadow: #333;
 }
 
-section ul {
+section ul{
     display: grid;
     list-style: none;
     display: inline-table;
@@ -97,25 +97,25 @@ section ul {
 
 
 
+    margin-bottom:15px ;
+    margin-right: 100px;  
 }
 
-section ul li {
+section ul li{
     background-color: rgb(190, 190, 200);
     padding: 10px;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     text-align: center;
-
 }
 
-section ul img {
+section ul img{
     width: 320px;
-    height: 300px;
-    border-radius: 20px;
-
-}
-
+    height:300px;
+    border-radius:20px;   
+}    
+    
 /* Footer del sitio*/
 footer {
     background-color: #333;
@@ -132,6 +132,10 @@ footer {
     padding: 0px;
     background-color: #333;
     list-style-type: none;
+    list-style-type: none; 
+    background-color: rgb(35 83 131);
+    border-radius: 10px;
+    border-color: black;
 }
 
 .ftr_sitio li {
@@ -145,8 +149,7 @@ footer {
     text-align: center;
 }
 
-.ftr_sitio a img {
-    /*    display: block;*/
+.ftr_sitio a img{
     padding: 5px;
     text-decoration: none;
     color: white;

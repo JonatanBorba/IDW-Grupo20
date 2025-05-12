@@ -4,70 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css" type="text/css" media="screen">
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon">
     <title>Salones de cumpleaños - IDW</title>
 </head>
 <body>
-<!-- menu del sitio-->
-    <header>
-        <ul class="menu">
-            <img src="img/Logo.png" alt="IDW Logo" class="logo"></a></li>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="institucional.html">Institucional</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            
-        </ul>
-    </header>
-    <main>
-        <h1>Consulta nuestras Ofertas! Arma tu presupuesto!!</h1>
-        <section>
-            <ul class="salones">
-                <li><strong>SALON Nº1</strong></li>Carriego nº2541
-                <br>
-                <img src="img/salon1.jpg" alt="SALON Nº1" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>    
-            <ul>
-                <li><strong>SALON Nº2</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon2.jpg" alt="SALON Nº2" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>    
-            <ul>
-                <li><strong>SALON Nº3</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon3.jpg" alt="SALON Nº3" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>
-            <ul>
-                <li><strong>SALON Nº4</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon4.jpg" alt="SALON Nº4" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul> 
-            <ul>
-                <li><strong>SALON Nº5</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon5.jpg" alt="SALON Nº5" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>           
-            <ul>
-                <li><strong>SALON Nº6</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon6.jpg"SALON Nº1" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>    
-        </section>
-    </main>
-    <!-- Pie del sitio-->
-    <footer>
-        <ul class="ftr_sitio">
+<header>
+    <!-- Barra de Navegación -->    
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container menu">
+            <a class="navbar-brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Logo" width="40" height="40"> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="institucional.html">Institucional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header> 
+
+<main>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Consulta nuestras Ofertas! Arma tu presupuesto!!</h2>
+        <div class="col-md-12">
+            <div>
+                <div class="card">
+                    <img src="img/salon1.jpg" class="card-img-top" alt="Salon 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Salon 1</h5>
+                        <p class="card-text">Amplio salon con todas las comodidades para 60 personas</p>
+                        <a href="#" class="btn btn-primary disabled">Ver más</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img/salon2.jpg" class="card-img-top" alt="Salon 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Salon 2</h5>
+                        <p class="card-text">Amplio salon con todas las comodidades para 60 personas</p>
+                        <a href="#" class="btn btn-primary disabled">Ver más</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img/salon3.jpg" class="card-img-top" alt="Salon 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Salon 3</h5>
+                        <p class="card-text">Amplio salon con todas las comodidades para 40 personas</p>
+                        <a href="#" class="btn btn-primary disabled">Ver más</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img/salon4.jpg" class="card-img-top" alt="Salon 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Salon 4</h5>
+                        <p class="card-text">Amplio salon con todas las comodidades para 40 personas</p>
+                        <a href="#" class="btn btn-primary disabled">Ver más</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img/salon5.jpg" class="card-img-top" alt="Salon 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Salon 5</h5>
+                        <p class="card-text">Amplio salon con todas las comodidades para 20 personas</p>
+                        <a href="#" class="btn btn-primary disabled">Ver más</a>
+                    </div>
+                </div> 
+                <div class="card">
+                    <img src="img/salon6.jpg" class="card-img-top" alt="Salon 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Salon 6</h5>
+                        <p class="card-text">Amplio salon con todas las comodidades para 20 personas</p>
+                        <a href="#" class="btn btn-primary disabled">Ver más</a>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</main>
+
+    <!-- Pie del sitio -->
+<footer class="bg-light text-center py-3">
+    <div class="container">
+        <ul class="mb-0 ftr_sitio">
             <li><p>&copy; 2025 IDW - Grupo20.</p></li>
             <li>
                 <a href="https://facebook.com" target="_blank">
@@ -85,7 +116,10 @@
                 </a>
             </li>
         </ul>
-    </footer>
-    
+    </div>
+</footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
+</html>
