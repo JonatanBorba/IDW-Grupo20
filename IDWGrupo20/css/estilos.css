@@ -7,25 +7,108 @@
 body {
     background-color: #fff;
     font-family: Arial, sans-serif;
-    margin: 15px;
+    margin:15px;
     padding: 0;
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    margin-left: 5px;
+}
+
+.imagenEmpresa {     
+    display: flex;
+    list-style: none;
+    background-image: url(../img/globos.jpg);
+    background-size: cover;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;    
+    font-family: Arial, Helvetica, sans-serif;
+    height: 210px;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa {
+        display: flex;
+        list-style: none;
+        background-image: url(../img/globos.jpg);
+        background-size: cover;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;    
+        font-family: Arial, Helvetica, sans-serif;
+        height: 110px;
+    }
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa {
+        display: flex;
+        list-style: none;
+        background-image: url(../img/globos.jpg);
+        background-size: cover;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;    
+        font-family: Arial, Helvetica, sans-serif;
+        height: 60px;
+    }
+}
+
+.imagenEmpresa img{
+    display:flex;
+    width: 200px;
+    height: 200px;  
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa img{
+        display:flex;
+        width: 100px;
+        height: 100px;  
+    }
+}
+
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa img{
+        display:flex;
+        width: 50px;
+        height: 50px;  
+    }
+}
+
+.imagenEmpresa h1 {
+    color: #fff;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 0px;
+    text-align: center;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa h1 {
+        color: #fff;
+        font-size: 30px;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 0px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa h1 {
+        color: #fff;
+        font-size: 15px;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 0px;
+        text-align: center;
+    }    
 }
 
   /* Estilos del menú */
 .menu{
-/*  
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    list-style-type: none;
-    margin: 0px;
-    padding: 10px;*/
     background-color: rgb(35 83 131);
     border-radius: 10px;
 }
@@ -47,31 +130,30 @@ body {
     background-color: rgb(135, 135, 145);
     border-radius: 5%;
     border-color: #fff;
-    box-shadow: 0 0 0 .20rem rgba(255, 200, 255, .25);
-    transform: scale(1.1);
+    box-shadow: 0 0 0 .20rem rgba(255, 200, 255, .25);    
+    transform: scale(1.1); 
 }
 
-.btn_sarch_inicio {
+.btn_sarch_inicio{
     border: none;
-    background-color: transparent;
+    background-color: transparent; 
     cursor: pointer;
     padding: 5px;
 }
 
 .btn_sarch_inicio img {
     width: 20px;
-    height: 20px;
-    border-radius: 50%;
+    height: 20px; 
+    border-radius: 50%;  
     background-color: transparent;
     display: block;
 }
 
 .btn_sarch_inicio:hover img {
-    transform: scale(1.2);
+    transform: scale(1.2); 
     transition: transform 0.2s ease;
 }
-
-header {
+header{
     background-color: #fff;
     font-family: Arial, sans-serif;
     margin:0%;
@@ -84,19 +166,13 @@ main h1{
 
 section ul{
     display: grid;
-    list-style: none;
+    list-style:none;
     display: inline-table;
-    padding: 20px;
+    padding:20px;
     background-color: #d7dadc;
     margin-left: 20px;
     border-radius: 50px;
     margin-top: 10px;
-    margin-bottom: 15px;
-    margin-right: 100px;
-
-
-
-
     margin-bottom:15px ;
     margin-right: 100px;  
 }
@@ -104,7 +180,7 @@ section ul{
 section ul li{
     background-color: rgb(190, 190, 200);
     padding: 10px;
-    border-radius: 50px;
+    border-radius:50px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -115,11 +191,82 @@ section ul img{
     height:300px;
     border-radius:20px;   
 }    
+
+ /*Estilo del Main Pagina Contacto */
+.sector_ctc {
+    display: flex;
+    text-align: center;    
+    justify-content: center;
+    align-items: center;
+    padding: 0;
     
+} 
+.sector_ctc li{
+    background-color: #d7dadc;
+}
+
+ /* institucional */
+.hero {
+    position: relative;
+    background: linear-gradient(to right, #0a2c48, #2680c2);
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+}
+
+.contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.testimonio {
+    background-color: #eef6fa;
+    border-radius: 50%;
+    padding: 40px;
+    width: 300px;
+    max-width: 80%;
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.testimonio strong {
+    display: block;
+    margin-top: 15px;
+    font-weight: 700;
+    color: #1c2b39;
+}
+
+.texto {
+    max-width: 600px;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.texto h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #0a2c48;
+}
+
+.texto p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+} 
+}
 /* Footer del sitio*/
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #333; 
+    color: white; 
     text-align: center;
 }
 
@@ -130,8 +277,6 @@ footer {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
-    background-color: #333;
-    list-style-type: none;
     list-style-type: none; 
     background-color: rgb(35 83 131);
     border-radius: 10px;
@@ -143,7 +288,7 @@ footer {
 }
 
 .ftr_sitio p {
-    color: white;
+    color: white; 
     font-size: 18px;
     padding: auto;
     text-align: center;
@@ -154,34 +299,18 @@ footer {
     text-decoration: none;
     color: white;
     font-size: 18px;
-    width: 30px;
-    height: 30px;
+    width: 30px; 
+    height: 30px; 
     margin: 10px;
     border-radius: 50%;
     align-items: center;
 }
 
 .ftr_sitio img:hover {
-    transform: scale(1.2);
+    transform: scale(1.2); 
     transition: transform 0.2s ease;
 }
 
 .ftr_sitio p:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); 
     transition: transform 0.2s ease;
-}
-
-
-.centrado {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    width: 80%;
-    height: 50vh; 
-    margin:auto;
-    text-align: justify; 
-    padding: 100px;
-}
-
-  
