@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,53 +12,89 @@
 
 <body>
     <header>
+        <!-- Imagen y Logo-->
         <ul class="imagenEmpresa">
-            <li><h1>IDW</h1></li>
+            <li><h1>IDW</h1>
             <li><img src="img/Logo.png" alt="IDW Logo" class="logo"></li>
             <li><h1>SALONES</h1></li>
         </ul>
-        <div class="ContenedorHeader">
-            <nav>
-                <ul class="menu">
-                    <img src="img/Logo.png" alt="IDW Logo" class="logo">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="institucional.html">Institucional</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid menu">
+            <a class="navbar-brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Logo" width="40" height="40"> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="institucional.html">Institucional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
+</header> 
 
     <main>
         <section class="hero">
-    <h1>Somos IDW</h1>
-  </section>
+            <h1>Somos IDW</h1>
+        </section>
 
-  <section class="contenido">
-    <div class="testimonio">
-      “Nuestra misión es hacer realidad los sueños de quienes confían en nosotros. En IDW trabajamos cada evento como si fuera único, porque lo es.”
-      <strong>- Equipo IDW</strong>
-    </div>
-    <div class="texto">
-      <h2>Espacios que inspiran momentos inolvidables</h2>
-      <p>Nos especializamos en ofrecer espacios únicos para eventos sociales y corporativos. Con más de 10 años de experiencia, brindamos atención personalizada, infraestructura moderna y compromiso total en cada detalle.</p>
-      <p>En IDW creemos que cada momento importante merece un entorno especial. Por eso, trabajamos junto a nuestros clientes para transformar sus ideas en experiencias inolvidables.</p>
-    </div>
-  </section>
-
+        <section class="contenido">
+            <div class="testimonio">
+                <p>“Nuestra misión es hacer realidad los sueños de quienes confían en nosotros. En IDW trabajamos cada
+                    evento como si fuera único, porque lo es.”
+                    <strong>- Equipo IDW</strong>
+                </p>
+            </div>
+            <div class="texto">
+                <h2>Espacios que inspiran momentos inolvidables</h2>
+                <p>Nos especializamos en ofrecer espacios únicos para eventos sociales y corporativos. Con más de 10
+                    años de experiencia, brindamos atención personalizada, infraestructura moderna y compromiso total en
+                    cada detalle.</p>
+                <p>En IDW creemos que cada momento importante merece un entorno especial. Por eso, trabajamos junto a
+                    nuestros clientes para transformar sus ideas en experiencias inolvidables.</p>
+            </div>
+        </section>
 
     </main>
 
-    <footer>
-        <ul class="ftr_sitio">
-            <li><p>&copy; 2025 IDW - Grupo20.</p></li>
-            <li><a href="https://facebook.com"><img src="img/facebook.png" alt="Facebook"></a></li>
-            <li><a href="https://x.com"><img src="img/X.png" alt="X"></a></li>
-            <li><a href="https://instagram.com"><img src="img/instagram.png" alt="Instagram"></a></li>
-        </ul>
+    <!-- Pie del sitio -->
+    <footer class="bg-light text-center py-3">
+        <div class="container-fluid">
+            <ul class="mb-0 ftr_sitio">
+                <li>
+                    <p>&copy; 2025 IDW - Grupo20.</p>
+                </li>
+                <li>
+                    <a href="https://facebook.com">
+                        <img src="img/facebook.png" alt="Facebook">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com">
+                        <img src="img/X.png" alt="X">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com">
+                        <img src="img/instagram.png" alt="Instagram">
+                    </a>
+                </li>
+            </ul>
+        </div>
     </footer>
 
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
