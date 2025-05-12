@@ -181,4 +181,60 @@ footer {
     padding: 100px;
 }
 
-  
+ /* institucional */
+.hero {
+    position: relative;
+    background: linear-gradient(to right, #0a2c48, #2680c2);
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+}
+
+.contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.testimonio {
+    background-color: #eef6fa;
+    border-radius: 50%;
+    padding: 40px;
+    width: 300px;
+    max-width: 80%;
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.testimonio strong {
+    display: block;
+    margin-top: 15px;
+    font-weight: 700;
+    color: #1c2b39;
+}
+
+.texto {
+    max-width: 600px;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.texto h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #0a2c48;
+}
+
+.texto p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+} 
