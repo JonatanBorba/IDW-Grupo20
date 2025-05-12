@@ -4,88 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css" type="text/css" media="screen">
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon">
     <title>Salones de cumpleaños - IDW</title>
 </head>
 <body>
-<!-- menu del sitio-->
+    <!-- Encabezado-->
     <header>
-        <ul class="menu">
-            <img src="img/Logo.png" alt="IDW Logo" class="logo"></a></li>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="institucional.html">Institucional</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            
+        <!-- Imagen y Logo-->
+        <ul class="imagenEmpresa">
+            <li><h1>IDW</h1>
+            <li><img src="img/Logo.png" alt="IDW Logo" class="logo"></li>
+            <li><h1>SALONES</h1></li>
         </ul>
-    </header>
+
+    <!-- Barra de Navegación -->    
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container menu">
+            <a class="navbar-brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Logo" width="40" height="40"> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="institucional.html">Institucional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header> 
+
+    <!-- Catalogo -->
     <main>
         <h1>Consulta nuestras Ofertas! Arma tu presupuesto!!</h1>
-        <section>
-            <ul class="salones">
-                <li><strong>SALON Nº1</strong></li>Carriego nº2541
-                <br>
-                <img src="img/salon1.jpg" alt="SALON Nº1" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>    
-            <ul>
-                <li><strong>SALON Nº2</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon2.jpg" alt="SALON Nº2" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>    
-            <ul>
-                <li><strong>SALON Nº3</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon3.jpg" alt="SALON Nº3" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>
-            <ul>
-                <li><strong>SALON Nº4</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon4.jpg" alt="SALON Nº4" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul> 
-            <ul>
-                <li><strong>SALON Nº5</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon5.jpg" alt="SALON Nº5" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>           
-            <ul>
-                <li><strong>SALON Nº6</strong></li>Carriego nº2541
-                <br/>
-                <img src="img/salon6.jpg"SALON Nº1" width="250">
-                <br/>
-                <p>Capacidad 60 personas</p>
-            </ul>    
+        <section class="p-4">
+            <div class="row g-3">
+                <div class="col-12 col-sm 6 col-lg-3">
+                    <div class="card">
+                        <img src="img/salon1.jpg" class="card-img-top" alt="Salon numero 1">
+                        <div class="card-body">
+                            <h5 class="card-title">SALON Nº 1</h5>
+                            <p class="card-text">Capacidad 60 Personas <br> Coldarolli Nº 55</p>
+                            <a href="#" class="btn btn-primary">+ Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm 6 col-lg-3">
+                    <div class="card">
+                        <img src="img/salon2.jpg" class="card-img-top" alt="Salon numero 2">
+                        <div class="card-body">
+                            <h5 class="card-title">SALON Nº 2</h5>
+                            <p class="card-text">Capacidad 60 Personas <br> Coldarolli Nº 55</p>
+                            <a href="#" class="btn btn-primary">+ Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm 6 col-lg-3">
+                    <div class="card">
+                        <img src="img/salon3.jpg" class="card-img-top" alt="Salon numero 3">
+                        <div class="card-body">
+                            <h5 class="card-title">SALON Nº 3</h5>
+                            <p class="card-text">Capacidad 40 Personas <br> Coldarolli Nº 55</p>
+                            <a href="#" class="btn btn-primary">+ Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm 6 col-lg-3">
+                    <div class="card">
+                        <img src="img/salon4.jpg" class="card-img-top" alt="Salon numero 4">
+                        <div class="card-body">
+                            <h5 class="card-title">SALON Nº 4</h5>
+                            <p class="card-text">Capacidad 40 Personas <br> Lavalle nº1826</p>
+                            <a href="#" class="btn btn-primary">+ Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm 6 col-lg-3">
+                    <div class="card">
+                        <img src="img/salon5.jpg" class="card-img-top" alt="Salon numero 5">
+                        <div class="card-body">
+                            <h5 class="card-title">SALON Nº 5</h5>
+                            <p class="card-text">Capacidad 20 Personas <br> Lavalle nº1826</p>
+                            <a href="#" class="btn btn-primary">+ Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm 6 col-lg-3">
+                    <div class="card">
+                        <img src="img/salon6.jpg" class="card-img-top" alt="Salon numero 6">
+                        <div class="card-body">
+                            <h5 class="card-title">SALON Nº 6</h5>
+                            <p class="card-text">Capacidad 20 Personas <br> Lavalle nº1826</p>
+                            <a href="#" class="btn btn-primary">+ Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
         </section>
     </main>
-    <!-- Pie del sitio-->
-    <footer>
-        <ul class="ftr_sitio">
+
+    <!-- Pie del sitio -->
+<footer class="bg-light text-center py-3">
+    <div class="container">
+        <ul class="mb-0 ftr_sitio">
             <li><p>&copy; 2025 IDW - Grupo20.</p></li>
             <li>
-                <a href="https://facebook.com" target="_blank">
+                <a href="https://facebook.com">
                     <img src="img/facebook.png" alt="Facebook">
                 </a>
             </li>
             <li>
-                <a href="https://x.com" target="_blank">
+                <a href="https://x.com">
                     <img src="img/X.png" alt="X">
                 </a>
             </li>
             <li>
-                <a href="https://instagram.com" target="_blank">
+                <a href="https://instagram.com">
                     <img src="img/instagram.png" alt="Instagram">
                 </a>
             </li>
         </ul>
-    </footer>
-    
+    </div>
+</footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 
+</html>

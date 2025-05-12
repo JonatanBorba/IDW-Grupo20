@@ -4,29 +4,113 @@
     box-sizing: border-box;
 
 }
-
 body {
     background-color: #fff;
     font-family: Arial, sans-serif;
-    margin: 15px;
+    margin:15px;
     padding: 0;
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    margin-left: 5px;
 }
 
-/* Estilos del menú */
-.menu {
+.imagenEmpresa {     
     display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    margin: 0px;
+    list-style: none;
+    background-image: url(../img/globos.jpg);
+    background-size: cover;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;    
+    font-family: Arial, Helvetica, sans-serif;
+    height: 210px;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa {
+        display: flex;
+        list-style: none;
+        background-image: url(../img/globos.jpg);
+        background-size: cover;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;    
+        font-family: Arial, Helvetica, sans-serif;
+        height: 110px;
+    }
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa {
+        display: flex;
+        list-style: none;
+        background-image: url(../img/globos.jpg);
+        background-size: cover;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;    
+        font-family: Arial, Helvetica, sans-serif;
+        height: 60px;
+    }
+}
+
+.imagenEmpresa img{
+    display:flex;
+    width: 200px;
+    height: 200px;  
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa img{
+        display:flex;
+        width: 100px;
+        height: 100px;  
+    }
+}
+
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa img{
+        display:flex;
+        width: 50px;
+        height: 50px;  
+    }
+}
+
+.imagenEmpresa h1 {
+    color: #fff;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #000000;
     padding: 0px;
-    background-color: #333;
+    text-align: center;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa h1 {
+        color: #fff;
+        font-size: 30px;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 0px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa h1 {
+        color: #fff;
+        font-size: 15px;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 0px;
+        text-align: center;
+    }    
+}
+
+  /* Estilos del menú */
+.menu{
+    background-color: rgb(35 83 131);
+    border-radius: 10px;
 }
 
 .menu li {
@@ -46,139 +130,79 @@ body {
     background-color: rgb(135, 135, 145);
     border-radius: 5%;
     border-color: #fff;
-    box-shadow: 0 0 0 .20rem rgba(255, 200, 255, .25);
-    transform: scale(1.1);
+    box-shadow: 0 0 0 .20rem rgba(255, 200, 255, .25);    
+    transform: scale(1.1); 
 }
 
-.btn_sarch_inicio {
+.btn_sarch_inicio{
     border: none;
-    background-color: transparent;
+    background-color: transparent; 
     cursor: pointer;
     padding: 5px;
 }
 
 .btn_sarch_inicio img {
     width: 20px;
-    height: 20px;
-    border-radius: 50%;
+    height: 20px; 
+    border-radius: 50%;  
     background-color: transparent;
     display: block;
 }
 
 .btn_sarch_inicio:hover img {
-    transform: scale(1.2);
+    transform: scale(1.2); 
     transition: transform 0.2s ease;
 }
-
-header {
+header{
     background-color: #fff;
     font-family: Arial, sans-serif;
-    margin: 0%;
+    margin:0%;
+} 
 
-}
-
-main h1 {
+main h1{
     text-align: center;
     text-shadow: #333;
 }
 
-section ul {
+section ul{
     display: grid;
-    list-style: none;
+    list-style:none;
     display: inline-table;
-    padding: 20px;
+    padding:20px;
     background-color: #d7dadc;
     margin-left: 20px;
     border-radius: 50px;
     margin-top: 10px;
-    margin-bottom: 15px;
-    margin-right: 100px;
-
-
-
-
+    margin-bottom:15px ;
+    margin-right: 100px;  
 }
 
-section ul li {
+section ul li{
     background-color: rgb(190, 190, 200);
     padding: 10px;
-    border-radius: 50px;
+    border-radius:50px;
     display: flex;
     flex-direction: column;
     text-align: center;
-
 }
 
-section ul img {
+section ul img{
     width: 320px;
-    height: 300px;
-    border-radius: 20px;
+    height:300px;
+    border-radius:20px;   
+}    
 
-}
-
-/* Footer del sitio*/
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-}
-
-.ftr_sitio {
+ /*Estilo del Main Pagina Contacto */
+.sector_ctc {
     display: flex;
+    text-align: center;    
     justify-content: center;
     align-items: center;
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
-    background-color: #333;
-    list-style-type: none;
-}
-
-.ftr_sitio li {
-    padding: 5px;
-}
-
-.ftr_sitio p {
-    color: white;
-    font-size: 18px;
-    padding: auto;
-    text-align: center;
-}
-
-.ftr_sitio a img {
-    /*    display: block;*/
-    padding: 5px;
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    width: 30px;
-    height: 30px;
-    margin: 10px;
-    border-radius: 50%;
-    align-items: center;
-}
-
-.ftr_sitio img:hover {
-    transform: scale(1.2);
-    transition: transform 0.2s ease;
-}
-
-.ftr_sitio p:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s ease;
-}
-
-
-.centrado {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    width: 80%;
-    height: 50vh; 
-    margin:auto;
-    text-align: justify; 
-    padding: 100px;
+    padding: 0;
+    
+} 
+.sector_ctc li{
+    background-color: #d7dadc;
 }
 
  /* institucional */
@@ -238,3 +262,55 @@ footer {
     margin-bottom: 20px;
     text-align: justify;
 } 
+}
+/* Footer del sitio*/
+footer {
+    background-color: #333; 
+    color: white; 
+    text-align: center;
+}
+
+.ftr_sitio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none; 
+    background-color: rgb(35 83 131);
+    border-radius: 10px;
+    border-color: black;
+}
+
+.ftr_sitio li {
+    padding: 5px;
+}
+
+.ftr_sitio p {
+    color: white; 
+    font-size: 18px;
+    padding: auto;
+    text-align: center;
+}
+
+.ftr_sitio a img{
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    width: 30px; 
+    height: 30px; 
+    margin: 10px;
+    border-radius: 50%;
+    align-items: center;
+}
+
+.ftr_sitio img:hover {
+    transform: scale(1.2); 
+    transition: transform 0.2s ease;
+}
+
+.ftr_sitio p:hover {
+    transform: scale(1.1); 
+    transition: transform 0.2s ease;
