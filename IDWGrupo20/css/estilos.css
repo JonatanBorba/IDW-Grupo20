@@ -11,21 +11,104 @@ body {
     padding: 0;
 }
 
-.logo{
-    width: 40px;
-    height: 40px;
+.logo {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    margin-left: 5px;
+}
+
+.imagenEmpresa {     
+    display: flex;
+    list-style: none;
+    background-image: url(../img/globos.jpg);
+    background-size: cover;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;    
+    font-family: Arial, Helvetica, sans-serif;
+    height: 210px;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa {
+        display: flex;
+        list-style: none;
+        background-image: url(../img/globos.jpg);
+        background-size: cover;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;    
+        font-family: Arial, Helvetica, sans-serif;
+        height: 110px;
+    }
+}
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa {
+        display: flex;
+        list-style: none;
+        background-image: url(../img/globos.jpg);
+        background-size: cover;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;    
+        font-family: Arial, Helvetica, sans-serif;
+        height: 60px;
+    }
+}
+
+.imagenEmpresa img{
+    display:flex;
+    width: 200px;
+    height: 200px;  
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa img{
+        display:flex;
+        width: 100px;
+        height: 100px;  
+    }
+}
+
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa img{
+        display:flex;
+        width: 50px;
+        height: 50px;  
+    }
+}
+
+.imagenEmpresa h1 {
+    color: #fff;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 0px;
+    text-align: center;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+    .imagenEmpresa h1 {
+        color: #fff;
+        font-size: 30px;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 0px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 150px) and (max-width: 400px) {
+    .imagenEmpresa h1 {
+        color: #fff;
+        font-size: 15px;
+        text-shadow: 2px 2px 4px #000000;
+        padding: 0px;
+        text-align: center;
+    }    
 }
 
   /* Estilos del menú */
 .menu{
-/*  
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    list-style-type: none;
-    margin: 0px;
-    padding: 10px;*/
     background-color: rgb(35 83 131);
     border-radius: 10px;
 }
@@ -108,7 +191,78 @@ section ul img{
     height:300px;
     border-radius:20px;   
 }    
+
+ /*Estilo del Main Pagina Contacto */
+.sector_ctc {
+    display: flex;
+    text-align: center;    
+    justify-content: center;
+    align-items: center;
+    padding: 0;
     
+} 
+.sector_ctc li{
+    background-color: #d7dadc;
+}
+
+ /* institucional */
+.hero {
+    position: relative;
+    background: linear-gradient(to right, #0a2c48, #2680c2);
+    color: white;
+    text-align: center;
+    padding: 20px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+}
+
+.contenido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.testimonio {
+    background-color: #eef6fa;
+    border-radius: 50%;
+    padding: 40px;
+    width: 300px;
+    max-width: 80%;
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.testimonio strong {
+    display: block;
+    margin-top: 15px;
+    font-weight: 700;
+    color: #1c2b39;
+}
+
+.texto {
+    max-width: 600px;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.texto h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #0a2c48;
+}
+
+.texto p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+} 
+
 /* Footer del sitio*/
 footer {
     background-color: #333; 
