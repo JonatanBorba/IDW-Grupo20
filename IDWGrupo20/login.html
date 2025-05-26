@@ -84,7 +84,7 @@
     <script>
         if(sessionStorage.getItem("usuario")){
             alert("Este Usurio tiene una sesión activa")
-            window.location.href = "#";     
+            window.location.href = "altaSalon.html";     
         } 
         document.getElementById("formularioAcceso").addEventListener("submit",function (event) {
             event.preventDefault();
@@ -95,7 +95,7 @@
             if(usuario === "admin" && contraseña === "grupo20"){
                 sessionStorage.setItem("usuario", usuario);
                 alert("Iniciaste sesión correctamente");
-                window.location.href = "index.html";
+                window.location.href = "altaSalon.html"; 
             } else {
                 alert("Usuario o contraseña incorrectos");
             }    
