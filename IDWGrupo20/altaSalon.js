@@ -29,9 +29,33 @@ document.addEventListener("DOMContentLoaded",() => {
         const nombre = document.getElementById("nombre").value;
         const direccion = document.getElementById("direccion").value;
         const descripcion = document.getElementById("descripcion").value;
+           
+        const salon = {nombre, direccion, descripcion};
+        const salones = JSON.parse(localStorage.getItem("salones")) || [];
+        salones.push(salon);
+        localStorage.setItem("salones", JSON.stringify(salones));
 
-        alert(`Usted agregó el salon ${nombre} descrición ${descripcion} ubicado en ${direccion}`);
+        alert(`Usted agregó el salon: ${nombre} descripción: ${descripcion} ubicado en: ${direccion}`);
 
-        this.reset(); 
+        this.reset();
+        mostrarSalones(); 
     });
-});
+     mostrarSalones(); 
+}); 
+
+function mostrarSalones(){
+    const tablaBody = document.querySelector("#tablaSalones tbody");
+    
+    tablaBody.innerHTML = "";
+    const salones = JSON.parse(localStorage.getItem("salones")) || [];
+    salones.forEach((salon) => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+            <td>${salon.nombre}</td>
+            <td>${salon.direccion}</td>
+            <td>${salon.descripcion}</td>
+        `;
+        tablaBody.appendChild(fila);
+    });
+
+}
