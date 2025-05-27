@@ -1,3 +1,4 @@
+//Seccion del Loguin
 document.addEventListener("DOMContentLoaded",() => {
 
     if(!sessionStorage.getItem("usuario")){
@@ -5,13 +6,7 @@ document.addEventListener("DOMContentLoaded",() => {
                 window.location.href = "login.html"; 
                 return    
             } 
-    // const salir = document.getElementById("logout");
-    // if(salir){
-    //     salir.addEventListener("click", ()=>{
-    //         sessionStorage.clear();
-    //         window.location.href = "index.html";
-    //     })
-    // } 
+
     const salir = document.querySelector(".btn-danger");
 
     if(salir){
@@ -21,30 +16,11 @@ document.addEventListener("DOMContentLoaded",() => {
         });
         }
 
-/*   const form = document.getElementById("formularioDeAlta");
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const nombre = document.getElementById("nombre").value;
-        const capacidad = document.getElementById("capacidad").value;
-        const direccion = document.getElementById("direccion").value;
-        const descripcion = document.getElementById("descripcion").value;
-        const urlimagen = document.getElementById("urlimagen").value;
-
-        alert(`Usted agregó el salon ${nombre}
-            con capacidad para ${capacidad} personas, 
-            descrición ${descripcion} 
-            ubicado en ${direccion}
-            con la Url de la imagen ${urlimagen}`);
-
-        this.reset(); 
-    });
-*/
 });
 
 /* Defino un array que va a tener salones por defecto */
 let salones = [
-    {nombre: "El Bosque", capacidad: 50, direccion: "San Juan 425", descripcion: "Salon amplio y luminoso", imagen: "https://example.com/salonA.jpg"},
+    {nombre: "El Bosque", capacidad: 50, direccion: "San Juan 425", descripcion: "Salon amplio y luminoso", imagen: "https://drive.google.com/file/d/1H8ePbJVRHMR-u7ziEuqNSNsESM1n-3kU/view?usp=sharing"},
     {nombre: "En Sueños", capacidad: 35, direccion: "Av. Eva Perón 2995", descripcion: "Salon con juegos y espacios blandos", imagen: "https://example.com/salonB.jpg"},
     {nombre: "Bambino Park", capacidad: 80, direccion: "San Lorenzo (O) 677", descripcion: "Salon ideal para eventos de chicos", imagen: "https://example.com/salonC.jpg"},
     {nombre: "Trampolin Park", capacidad: 70, direccion: "San Lorenzo (O) 621", descripcion: "Salon con camas elasticas", imagen: "https://example.com/salonC.jpg"},
@@ -52,6 +28,10 @@ let salones = [
     {nombre: "El Quincho", capacidad: 20, direccion: "Av. Eva Perón 2995", descripcion: "Salon con piscina y parrila", imagen: "https://example.com/salonC.jpg"},
 ];
 
+//**************************************************************************************//
+//                              ADMINISTRACION DE SALONES                               //
+//**************************************************************************************//
+//El usuario hizo click en el botón "Guardar"
 document.getElementById("guardar").addEventListener("click", function() {
     const nombre = document.getElementById("nombre").value;
     const capacidad = document.getElementById("capacidad").value;
@@ -71,6 +51,31 @@ document.getElementById("guardar").addEventListener("click", function() {
                             imagen: salones[i].imagen });
         }
 
-    localStorage.setItem("nuevosalon", JSON.stringify(nuevosalon));
+    localStorage.setItem("salones", JSON.stringify(nuevosalon));
     alert(`Datos del salon ${nombre} almacenados correctamente`);
+    listarSalones();
 });
+
+//El usuario hizo click en el botón "Listar"
+document.getElementById("listar").addEventListener("click", function() {
+    //Si el usuario solo quiere ver los salones, mostramos los que hay por defecto (si no cargo ningúno).
+    listarSalones();
+});
+
+/*Función para Listar los salones */
+function listarSalones(){
+    const tablaBody = document.querySelector("#tablaSalones tbody");
+    
+    tablaBody.innerHTML = "";
+    const salones = JSON.parse(localStorage.getItem("salones")) || [];
+    salones.forEach((salon) => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+            <td>${salon.nombre}</td>
+            <td>${salon.direccion}</td>
+            <td>${salon.descripcion}</td>
+            <td>${salon.urlimagen}</td>
+            `;
+        tablaBody.appendChild(fila);
+    });
+}
