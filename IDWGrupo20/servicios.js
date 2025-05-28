@@ -58,13 +58,41 @@ document.getElementById("listar_srv").addEventListener("click", function() {
     listarServicios();
 });
 
-/*Función para Listar los salones */
+/*Función para Listar los Servicios */
 function listarServicios(){
     const tablaBody = document.querySelector("#tablaServicios tbody");
     
     tablaBody.innerHTML = "";
     const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
-    servicios.forEach((servicio) => {
+    for (let i = 0; i < servicios.length; i++) {
+        const servicio = servicios[i];
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+            <td><input type="radio" name="rdEliminar${i}"></td>
+            <td>${servicio.nombre}</td>
+            <td>${servicio.descripcion}</td>
+            <td>${servicio.imagen}</td>
+        `;
+        tablaBody.appendChild(fila);
+    }
+
+    // Agrego al final de la tabla un botón para eliminar Servicios
+    let divContenedor = document.getElementById("divServicios");
+    let boton = document.createElement("button");
+    boton.textContent = "Eliminar Sservicio";
+    boton.className = "btn btn-secondary";
+    
+    // Tengo que agregar un evento al botón para eliminar uno o varios Servicios seleccionados
+    boton.onclick = function() {
+        alert("¡Elimino uno o varios Servicios!");
+    };
+
+    divContenedor.appendChild(boton);
+
+
+
+
+/*    servicios.forEach((servicio) => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
             <td>${servicio.nombre}</td>
@@ -73,4 +101,5 @@ function listarServicios(){
         `;
         tablaBody.appendChild(fila);
     });
+*/
 }

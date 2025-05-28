@@ -68,14 +68,29 @@ function listarSalones(){
     
     tablaBody.innerHTML = "";
     const salones = JSON.parse(localStorage.getItem("salones")) || [];
-    salones.forEach((salon) => {
+    for (let i = 0; i < salones.length; i++) {
+        const salon = salones[i];
         const fila = document.createElement("tr");
         fila.innerHTML = `
+            <td><input type="radio" name="rdEliminar${i}"></td>
             <td>${salon.nombre}</td>
             <td>${salon.direccion}</td>
             <td>${salon.descripcion}</td>
-            <td>${salon.urlimagen}</td>
-            `;
+            <td>${salon.imagen}</td>
+        `;
         tablaBody.appendChild(fila);
-    });
+    }
+
+    // Agrego al final de la tabla un botón para eliminar un salón
+    let divContenedor = document.getElementById("divSalones");
+    let boton = document.createElement("button");
+    boton.textContent = "Eliminar Salón";
+    boton.className = "btn btn-secondary";
+    
+    // Tengo que agregar un evento al botón para eliminar el/los salón/es seleccionado/s
+    boton.onclick = function() {
+        alert("¡Hola, Ignacio!");
+    };
+
+    divContenedor.appendChild(boton);
 }
