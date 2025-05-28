@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded",() => {
 
 /* Defino un array que va a tener Servicios por defecto */
 let servicios = [
-    {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.", imagen: "https://example.com/salonA.jpg"},
-    {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.", imagen: "https://example.com/salonB.jpg"},
-    {nombre: "Decoración", descripcion: "¿Estás sin tiempo? Nos encargamos de decorar el salón a tu gusto haciendo todavía más especial ese evento.", imagen: "https://example.com/salonC.jpg"},
-    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.", imagen: "https://example.com/salonC.jpg"},
-    {nombre: "Iluminación", descripcion: "Puesta escenográfica. Proyector de video con pantalla retráctil.", imagen: "https://example.com/salonC.jpg"},
-    {nombre: "Centros de Mesa", descripcion: "Centros de mesa personalizados acordes a la temática del cumpleaños, celebración o evento.", imagen: "https://example.com/salonC.jpg"},
+    {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.", imagen: "https://drive.google.com/file/d/1H8BDPDrA-R9CwmGveYdpUuz1Sb4YDEo1/view?usp=drive_link"},
+    {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.", imagen: "https://drive.google.com/file/d/1HyD4IF6PlAwG3KXQaRylVcq86QjYOco1/view?usp=drive_link"},
+    {nombre: "Decoración", descripcion: "¿Estás sin tiempo? Nos encargamos de decorar el salón a tu gusto haciendo todavía más especial ese evento.", imagen: "https://drive.google.com/file/d/1HhJ9DMpXPMyle8WXNrkwlgThE5AbTWE5/view?usp=drive_link"},
+    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.", imagen: "https://drive.google.com/file/d/1HXVMyqGujycQ_Fgrj1z0wsli-AesgusI/view?usp=drive_link"},
+    {nombre: "Iluminación", descripcion: "Puesta escenográfica. Proyector de video con pantalla retráctil.", imagen: "https://drive.google.com/file/d/1HTWJRPlPovQxcrBKOiYQiJo7BVkI49iP/view?usp=drive_link"},
+    {nombre: "Centros de Mesa", descripcion: "Centros de mesa personalizados acordes a la temática del cumpleaños, celebración o evento.", imagen: "https://drive.google.com/file/d/1HMZbl4DoHjeMocBJl2Mejtzyp_9sYf5S/view?usp=drive_link"},
 ];
 
 
@@ -81,25 +81,16 @@ function listarServicios(){
     let boton = document.createElement("button");
     boton.textContent = "Eliminar Sservicio";
     boton.className = "btn btn-secondary";
+    boton.id = "btnEliminarServicio";
     
     // Tengo que agregar un evento al botón para eliminar uno o varios Servicios seleccionados
     boton.onclick = function() {
         alert("¡Elimino uno o varios Servicios!");
     };
 
-    divContenedor.appendChild(boton);
-
-
-
-
-/*    servicios.forEach((servicio) => {
-        const fila = document.createElement("tr");
-        fila.innerHTML = `
-            <td>${servicio.nombre}</td>
-            <td>${servicio.descripcion}</td>
-            <td>${servicio.urlimagen}</td>
-        `;
-        tablaBody.appendChild(fila);
-    });
-*/
+    const existeboton = document.getElementById('btnEliminarServicio');
+    if (existeboton) {
+    } else {
+        divContenedor.appendChild(boton);
+    }
 }

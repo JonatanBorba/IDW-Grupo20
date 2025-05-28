@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded",() => {
 
 /* Defino un array que va a tener salones por defecto */
 let salones = [
-    {nombre: "El Bosque", capacidad: 50, direccion: "San Juan 425", descripcion: "Salon amplio y luminoso", imagen: "https://drive.google.com/file/d/1H8ePbJVRHMR-u7ziEuqNSNsESM1n-3kU/view?usp=sharing"},
-    {nombre: "En Sueños", capacidad: 35, direccion: "Av. Eva Perón 2995", descripcion: "Salon con juegos y espacios blandos", imagen: "https://example.com/salonB.jpg"},
-    {nombre: "Bambino Park", capacidad: 80, direccion: "San Lorenzo (O) 677", descripcion: "Salon ideal para eventos de chicos", imagen: "https://example.com/salonC.jpg"},
-    {nombre: "Trampolin Park", capacidad: 70, direccion: "San Lorenzo (O) 621", descripcion: "Salon con camas elasticas", imagen: "https://example.com/salonC.jpg"},
-    {nombre: "EME Multiespacio", capacidad: 100, direccion: "Salto Uruguayo 1600", descripcion: "Salon para fiestas", imagen: "https://example.com/salonC.jpg"},
-    {nombre: "El Quincho", capacidad: 20, direccion: "Av. Eva Perón 2995", descripcion: "Salon con piscina y parrila", imagen: "https://example.com/salonC.jpg"},
+    {nombre: "El Bosque", capacidad: 50, direccion: "San Juan 425", descripcion: "Salon amplio y luminoso", imagen: "https://drive.google.com/file/d/1H8ePbJVRHMR-u7ziEuqNSNsESM1n-3kU/view?usp=drive_link"},
+    {nombre: "En Sueños", capacidad: 35, direccion: "Av. Eva Perón 2995", descripcion: "Salon con juegos y espacios blandos", imagen: "https://drive.google.com/file/d/1HqvjT0MpKSrIs1da3Uc1tyB7osFFsdX8/view?usp=drive_link"},
+    {nombre: "Bambino Park", capacidad: 80, direccion: "San Lorenzo (O) 677", descripcion: "Salon ideal para eventos de chicos", imagen: "https://drive.google.com/file/d/1H-TISYEl0YyOZfgjRTN3CWhvqGsxn-Sx/view?usp=drive_link"},
+    {nombre: "Trampolin Park", capacidad: 70, direccion: "San Lorenzo (O) 621", descripcion: "Salon con camas elasticas", imagen: "https://drive.google.com/file/d/1HTJP-7JPBEru2uH7a_LG8_v9_n585el9/view?usp=drive_link"},
+    {nombre: "EME Multiespacio", capacidad: 100, direccion: "Salto Uruguayo 1600", descripcion: "Salon para fiestas", imagen: "https://drive.google.com/file/d/1HICwWF-nisElIN2Te-9WtV3rVTX67m7_/view?usp=drive_link"},
+    {nombre: "El Quincho", capacidad: 20, direccion: "Av. Eva Perón 2995", descripcion: "Salon con piscina y parrila", imagen: "https://drive.google.com/file/d/1HwejQ3VRZ9C6R5tMMLbe8LV7wxLDhdTU/view?usp=drive_link"},
 ];
 
 //**************************************************************************************//
@@ -86,11 +86,16 @@ function listarSalones(){
     let boton = document.createElement("button");
     boton.textContent = "Eliminar Salón";
     boton.className = "btn btn-secondary";
+    boton.id = "btnEliminarSalon";
     
     // Tengo que agregar un evento al botón para eliminar el/los salón/es seleccionado/s
     boton.onclick = function() {
-        alert("¡Hola, Ignacio!");
+        alert("¡Elimino uno o varios Salones!");
     };
 
-    divContenedor.appendChild(boton);
+    const existeboton = document.getElementById('btnEliminarSalon');
+    if (existeboton) {
+    } else {
+        divContenedor.appendChild(boton);
+    }
 }
