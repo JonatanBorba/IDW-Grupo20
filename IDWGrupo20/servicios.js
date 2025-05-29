@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded",() => {
 
 /* Defino un array que va a tener Servicios por defecto */
 let servicios = [
-    {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.", imagen: "https://drive.google.com/file/d/1H8BDPDrA-R9CwmGveYdpUuz1Sb4YDEo1/view?usp=drive_link"},
-    {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.", imagen: "https://drive.google.com/file/d/1HyD4IF6PlAwG3KXQaRylVcq86QjYOco1/view?usp=drive_link"},
-    {nombre: "Decoración", descripcion: "¿Estás sin tiempo? Nos encargamos de decorar el salón a tu gusto haciendo todavía más especial ese evento.", imagen: "https://drive.google.com/file/d/1HhJ9DMpXPMyle8WXNrkwlgThE5AbTWE5/view?usp=drive_link"},
-    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.", imagen: "https://drive.google.com/file/d/1HXVMyqGujycQ_Fgrj1z0wsli-AesgusI/view?usp=drive_link"},
-    {nombre: "Iluminación", descripcion: "Puesta escenográfica. Proyector de video con pantalla retráctil.", imagen: "https://drive.google.com/file/d/1HTWJRPlPovQxcrBKOiYQiJo7BVkI49iP/view?usp=drive_link"},
-    {nombre: "Centros de Mesa", descripcion: "Centros de mesa personalizados acordes a la temática del cumpleaños, celebración o evento.", imagen: "https://drive.google.com/file/d/1HMZbl4DoHjeMocBJl2Mejtzyp_9sYf5S/view?usp=drive_link"},
+    {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.", imagen: "img/servicio-catering.jpg"},
+    {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.", imagen: "img/servicios-barrat.jpg"},
+    {nombre: "Decoración", descripcion: "¿Estás sin tiempo? Nos encargamos de decorar el salón a tu gusto haciendo todavía más especial ese evento.", imagen: "img/servicio-decoracion.jpg"},
+    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.", imagen: "img/servicio-disckjock.jpg"},
+    {nombre: "Iluminación", descripcion: "Puesta escenográfica. Proyector de video con pantalla retráctil.", imagen: "img/servicio-iluminacion.jpg"},
+    {nombre: "Centros de Mesa", descripcion: "Centros de mesa personalizados acordes a la temática del cumpleaños, celebración o evento.", imagen: "img/servicio-centrom.jpg"},
 ];
 
 
@@ -68,29 +68,23 @@ function listarServicios(){
         const servicio = servicios[i];
         const fila = document.createElement("tr");
         fila.innerHTML = `
-            <td><input type="radio" name="rdEliminar${i}"></td>
             <td>${servicio.nombre}</td>
             <td>${servicio.descripcion}</td>
-            <td>${servicio.imagen}</td>
+            <td><img src="${servicio.imagen}" alt="${servicio.nombre}" width="50px"></td>
+            <td><button id="btnEliminar${i}" type="button" class="btn btn-sm btn-danger btn-eliminar">
+                <i class="fas fa-trash-alt"></i> Eliminar
+                </button>
+            </td>
+
+
         `;
         tablaBody.appendChild(fila);
     }
-
-    // Agrego al final de la tabla un botón para eliminar Servicios
-    let divContenedor = document.getElementById("divServicios");
-    let boton = document.createElement("button");
-    boton.textContent = "Eliminar Sservicio";
-    boton.className = "btn btn-secondary";
-    boton.id = "btnEliminarServicio";
-    
-    // Tengo que agregar un evento al botón para eliminar uno o varios Servicios seleccionados
-    boton.onclick = function() {
-        alert("¡Elimino uno o varios Servicios!");
-    };
-
-    const existeboton = document.getElementById('btnEliminarServicio');
-    if (existeboton) {
-    } else {
-        divContenedor.appendChild(boton);
-    }
 }
+
+// Event delegation para eliminar la fila al hacer clic en el botón Eliminar
+document.getElementById("tablaServiciosBody").addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-eliminar")) {
+        event.target.closest("tr").remove(); // Elimino la fila
+    }
+});

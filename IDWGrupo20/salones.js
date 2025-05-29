@@ -7,11 +7,12 @@ document.addEventListener("DOMContentLoaded",() => {
                 return    
             } 
 
-    const salir = document.querySelector(".btn-danger");
+    const salir = document.getElementById("salir"); 
 
     if(salir){
         salir.addEventListener("click", ()=>{
             sessionStorage.clear();
+            localStorage.clear();
             window.location.href = "index.html";
         });
         }
@@ -20,12 +21,12 @@ document.addEventListener("DOMContentLoaded",() => {
 
 /* Defino un array que va a tener salones por defecto */
 let salones = [
-    {nombre: "El Bosque", capacidad: 50, direccion: "San Juan 425", descripcion: "Salon amplio y luminoso", imagen: "https://drive.google.com/file/d/1H8ePbJVRHMR-u7ziEuqNSNsESM1n-3kU/view?usp=drive_link"},
-    {nombre: "En Sueños", capacidad: 35, direccion: "Av. Eva Perón 2995", descripcion: "Salon con juegos y espacios blandos", imagen: "https://drive.google.com/file/d/1HqvjT0MpKSrIs1da3Uc1tyB7osFFsdX8/view?usp=drive_link"},
-    {nombre: "Bambino Park", capacidad: 80, direccion: "San Lorenzo (O) 677", descripcion: "Salon ideal para eventos de chicos", imagen: "https://drive.google.com/file/d/1H-TISYEl0YyOZfgjRTN3CWhvqGsxn-Sx/view?usp=drive_link"},
-    {nombre: "Trampolin Park", capacidad: 70, direccion: "San Lorenzo (O) 621", descripcion: "Salon con camas elasticas", imagen: "https://drive.google.com/file/d/1HTJP-7JPBEru2uH7a_LG8_v9_n585el9/view?usp=drive_link"},
-    {nombre: "EME Multiespacio", capacidad: 100, direccion: "Salto Uruguayo 1600", descripcion: "Salon para fiestas", imagen: "https://drive.google.com/file/d/1HICwWF-nisElIN2Te-9WtV3rVTX67m7_/view?usp=drive_link"},
-    {nombre: "El Quincho", capacidad: 20, direccion: "Av. Eva Perón 2995", descripcion: "Salon con piscina y parrila", imagen: "https://drive.google.com/file/d/1HwejQ3VRZ9C6R5tMMLbe8LV7wxLDhdTU/view?usp=drive_link"},
+    {nombre: "El Bosque", capacidad: 50, direccion: "San Juan 425", descripcion: "Salon amplio y luminoso", imagen: "img/salon1.jpg"},
+    {nombre: "En Sueños", capacidad: 35, direccion: "Av. Eva Perón 2995", descripcion: "Salon con juegos y espacios blandos", imagen: "img/salon2.jpg"},
+    {nombre: "Bambino Park", capacidad: 80, direccion: "San Lorenzo (O) 677", descripcion: "Salon ideal para eventos de chicos", imagen: "img/salon3.jpg"},
+    {nombre: "Trampolin Park", capacidad: 70, direccion: "San Lorenzo (O) 621", descripcion: "Salon con camas elasticas", imagen: "img/salon4.jpg"},
+    {nombre: "EME Multiespacio", capacidad: 100, direccion: "Salto Uruguayo 1600", descripcion: "Salon para fiestas", imagen: "img/salon5.jpg"},
+    {nombre: "El Quincho", capacidad: 20, direccion: "Av. Eva Perón 2995", descripcion: "Salon con piscina y parrila", imagen: "img/salon6.jpg"},
 ];
 
 //**************************************************************************************//
@@ -50,7 +51,6 @@ document.getElementById("guardar").addEventListener("click", function() {
                             descripcion: salones[i].descripcion,
                             imagen: salones[i].imagen });
         }
-
     localStorage.setItem("salones", JSON.stringify(nuevosalon));
     alert(`Datos del salon ${nombre} almacenados correctamente`);
     listarSalones();
@@ -72,30 +72,22 @@ function listarSalones(){
         const salon = salones[i];
         const fila = document.createElement("tr");
         fila.innerHTML = `
-            <td><input type="radio" name="rdEliminar${i}"></td>
             <td>${salon.nombre}</td>
             <td>${salon.direccion}</td>
             <td>${salon.descripcion}</td>
-            <td>${salon.imagen}</td>
+            <td><img src="${salon.imagen}" alt="${salon.nombre}" width="50px"></td>
+            <td><button id="btnEliminar${i}" type="button" class="btn btn-sm btn-danger btn-eliminar">
+                <i class="fas fa-trash-alt"></i> Eliminar
+                </button>
+            </td>
         `;
         tablaBody.appendChild(fila);
     }
-
-    // Agrego al final de la tabla un botón para eliminar un salón
-    let divContenedor = document.getElementById("divSalones");
-    let boton = document.createElement("button");
-    boton.textContent = "Eliminar Salón";
-    boton.className = "btn btn-secondary";
-    boton.id = "btnEliminarSalon";
-    
-    // Tengo que agregar un evento al botón para eliminar el/los salón/es seleccionado/s
-    boton.onclick = function() {
-        alert("¡Elimino uno o varios Salones!");
-    };
-
-    const existeboton = document.getElementById('btnEliminarSalon');
-    if (existeboton) {
-    } else {
-        divContenedor.appendChild(boton);
-    }
 }
+
+// Event delegation para eliminar la fila al hacer clic en el botón Eliminar
+document.getElementById("tablaSalonesBody").addEventListener("click", (event) => {
+    if (event.target.classList.contains("btn-eliminar")) {
+        event.target.closest("tr").remove(); // Elimino la fila
+    }
+});
