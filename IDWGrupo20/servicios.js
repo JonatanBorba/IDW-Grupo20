@@ -46,10 +46,13 @@ document.getElementById("guardar_srv").addEventListener("click", function() {
     let nuevoServicio = [
     {nombre: nombre, descripcion: descripcion, imagen: urlimagen }];
     
-    const Servicios_local = localStorage.getItem("servicios");
-    const servicios = JSON.parse(Servicios_local);
-    //Si hay Servicios en el localStorage, concatenamos el nuevo servicio con los existentes
-    nuevoServicio = servicios.concat(nuevoServicio);
+    const servicios_local = localStorage.getItem("servicios");
+    const servicios = JSON.parse(servicios_local);
+
+    if (servicios) {
+        //Si hay Servicios en el localStorage, concatenamos el nuevo servicio con los existentes
+        nuevoServicio = servicios.concat(nuevoServicio);
+    }
 
     localStorage.setItem("servicios", JSON.stringify(nuevoServicio));
     alert(`Datos del Servicio ${nombre} almacenados correctamente`);

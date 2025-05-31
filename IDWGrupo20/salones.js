@@ -50,8 +50,10 @@ document.getElementById("guardar").addEventListener("click", function() {
     
     const salones_local = localStorage.getItem("salones");
     const salones = JSON.parse(salones_local);
-    //Si hay salones en el localStorage, concatenamos el nuevo salón con los existentes
-    nuevosalon = salones.concat(nuevosalon);
+    if (salones) {
+        //Si hay salones en el localStorage, les cargamos los salones por defecto
+        nuevosalon = salones.concat(nuevosalon);
+    }
 
     localStorage.setItem("salones", JSON.stringify(nuevosalon));
     alert(`Datos del salon ${nombre} almacenados correctamente`);
