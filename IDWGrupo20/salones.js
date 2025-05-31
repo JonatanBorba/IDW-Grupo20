@@ -16,18 +16,17 @@ document.addEventListener("DOMContentLoaded",() => {
             window.location.href = "index.html";
         });
         }
-
 });
 
-/* Defino un array que va a tener salones por defecto */
-let salones = [
+/* Defino un array que va a tener salones por defecto */ 
+let salonesDefecto = [
     {nombre: "El Bosque", capacidad: 50, direccion: "San Juan 425", descripcion: "Salon amplio y luminoso", imagen: "img/salon1.jpg"},
     {nombre: "En Sueños", capacidad: 35, direccion: "Av. Eva Perón 2995", descripcion: "Salon con juegos y espacios blandos", imagen: "img/salon2.jpg"},
     {nombre: "Bambino Park", capacidad: 80, direccion: "San Lorenzo (O) 677", descripcion: "Salon ideal para eventos de chicos", imagen: "img/salon3.jpg"},
     {nombre: "Trampolin Park", capacidad: 70, direccion: "San Lorenzo (O) 621", descripcion: "Salon con camas elasticas", imagen: "img/salon4.jpg"},
     {nombre: "EME Multiespacio", capacidad: 100, direccion: "Salto Uruguayo 1600", descripcion: "Salon para fiestas", imagen: "img/salon5.jpg"},
     {nombre: "El Quincho", capacidad: 20, direccion: "Av. Eva Perón 2995", descripcion: "Salon con piscina y parrila", imagen: "img/salon6.jpg"},
-];
+    ];
 
 //**************************************************************************************//
 //                              ADMINISTRACION DE SALONES                               //
@@ -39,26 +38,58 @@ document.getElementById("guardar").addEventListener("click", function() {
     const direccion = document.getElementById("direccion").value;
     const descripcion = document.getElementById("descripcion").value;
     const urlimagen = document.getElementById("urlimagen").value;
-    
-    const nuevosalon = [
+
+    //Validamos que los campos no estén vacíos
+    if (nombre === "" || capacidad === "" || direccion === "" || descripcion === "" || urlimagen === "") {
+        alert("Por favor, complete todos los campos.");
+        return;
+    }
+
+    let nuevosalon = [
     {nombre: nombre, capacidad: capacidad, direccion: direccion, descripcion: descripcion, imagen: urlimagen }];
     
-    /*Agrego a los salones por defecto, el salon agregado por el usuario */
-    for (let i = 0; i < salones.length; i++) {
-            nuevosalon.push({ nombre: salones[i].nombre, 
-                            capacidad: salones[i].capacidad,
-                            direccion: salones[i].direccion,
-                            descripcion: salones[i].descripcion,
-                            imagen: salones[i].imagen });
-        }
+    const salones_local = localStorage.getItem("salones");
+    const salones = JSON.parse(salones_local);
+    //Si hay salones en el localStorage, concatenamos el nuevo salón con los existentes
+    nuevosalon = salones.concat(nuevosalon);
+
     localStorage.setItem("salones", JSON.stringify(nuevosalon));
     alert(`Datos del salon ${nombre} almacenados correctamente`);
+
+    //Limpiamos los campos del formulario
+    document.getElementById("nombre").value = "";
+    document.getElementById("capacidad").value = "";
+    document.getElementById("direccion").value = "";
+    document.getElementById("descripcion").value = "";
+    document.getElementById("urlimagen").value = "";
+
+    //Llamamos a la función para listar los salones
     listarSalones();
 });
 
 //El usuario hizo click en el botón "Listar"
 document.getElementById("listar").addEventListener("click", function() {
     //Si el usuario solo quiere ver los salones, mostramos los que hay por defecto (si no cargo ningúno).
+    let nuevosalon = [];
+
+    const salones_local = localStorage.getItem("salones");
+    const salones = JSON.parse(salones_local);
+    if (salones) {
+        //Si hay salones en el localStorage, les cargamos los salones por defecto
+        nuevosalon = salones.concat(salonesDefecto);
+    } else {
+        //Si no hay salones en el localStorage, los cargamos con los salones por defecto
+        nuevosalon = salonesDefecto;
+    }
+
+    //Eliminamos los salones que tienen el mismo nombre
+    let salonesSinRepetidos = nuevosalon.filter((obj, indice, self) =>
+    indice === self.findIndex((el) => el.nombre === obj.nombre) );
+
+    //Guardamos los salones en el localStorage
+    localStorage.setItem("salones", JSON.stringify(salonesSinRepetidos));
+
+    //Llamamos a la función para listar los salones
     listarSalones();
 });
 
@@ -72,13 +103,16 @@ function listarSalones(){
         const salon = salones[i];
         const fila = document.createElement("tr");
         fila.innerHTML = `
-            <td>${salon.nombre}</td>
-            <td>${salon.direccion}</td>
-            <td>${salon.descripcion}</td>
-            <td><img src="${salon.imagen}" alt="${salon.nombre}" width="50px"></td>
-            <td><button id="btnEliminar${i}" type="button" class="btn btn-sm btn-danger btn-eliminar">
-                <i class="fas fa-trash-alt"></i> Eliminar
-                </button>
+            <td contenteditable="true">${salon.nombre}</td>
+            <td contenteditable="true">${salon.direccion}</td>
+            <td contenteditable="true">${salon.descripcion}</td>
+            <td contenteditable="true">
+                <img src="${salon.imagen}" alt="${salon.nombre}" width="50px"></td>
+            <td>
+                <button id="btnEliminar${i}" type="button" class="btn btn-sm btn-danger btn-eliminar">
+                Eliminar </button>
+                <button id="btnModificar${i}" type="button" class="btn btn-sm btn-primary btn-success">
+                Guardar </button>
             </td>
         `;
         tablaBody.appendChild(fila);
@@ -88,6 +122,6 @@ function listarSalones(){
 // Event delegation para eliminar la fila al hacer clic en el botón Eliminar
 document.getElementById("tablaSalonesBody").addEventListener("click", (event) => {
     if (event.target.classList.contains("btn-eliminar")) {
-        event.target.closest("tr").remove(); // Elimino la fila
+        event.target.closest("tr").remove(); // Elimino la fila de la tabla
     }
 });
