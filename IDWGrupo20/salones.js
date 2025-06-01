@@ -105,25 +105,70 @@ function listarSalones(){
         const salon = salones[i];
         const fila = document.createElement("tr");
         fila.innerHTML = `
-            <td contenteditable="true">${salon.nombre}</td>
-            <td contenteditable="true">${salon.direccion}</td>
-            <td contenteditable="true">${salon.descripcion}</td>
-            <td contenteditable="true">
+            <td>${salon.nombre}</td>
+            <td>${salon.direccion}</td>
+            <td>${salon.descripcion}</td>
+            <td>
                 <img src="${salon.imagen}" alt="${salon.nombre}" width="50px"></td>
             <td>
-                <button id="btnEliminar${i}" type="button" class="btn btn-sm btn-danger btn-eliminar">
+                <button class="btn btn-sm btn-danger btn-eliminar" onclick="eliminarSalon(${i})">
                 Eliminar </button>
-                <button id="btnModificar${i}" type="button" class="btn btn-sm btn-primary btn-success">
-                Guardar </button>
+                <button class="btn btn-sm btn-primary btn-success" onclick="editarSalon(${i})">
+                Editar </button>
             </td>
         `;
         tablaBody.appendChild(fila);
     }
 }
 
-// Event delegation para eliminar la fila al hacer clic en el botón Eliminar
-document.getElementById("tablaSalonesBody").addEventListener("click", (event) => {
-    if (event.target.classList.contains("btn-eliminar")) {
-        event.target.closest("tr").remove(); // Elimino la fila de la tabla
+// Funcion para eliminar la fila al hacer clic en el botón Eliminar
+function eliminarSalon(index) {
+    const salones = JSON.parse(localStorage.getItem("salones")) || [];
+    if (index >= 0 && index < salones.length) {
+        salones.splice(index, 1); // Elimina el salón en la posición indicada
+        localStorage.setItem("salones", JSON.stringify(salones)); // Actualiza el localStorage
+        listarSalones(); // Vuelve a listar los salones actualizados
     }
-});
+}
+
+// Función para editar un salón
+function editarSalon(index) {
+    const salones = JSON.parse(localStorage.getItem("salones")) || [];
+    if (index >= 0 && index < salones.length) {
+        const salon = salones[index];
+        document.getElementById("nombre").value = salon.nombre;
+        document.getElementById("capacidad").value = salon.capacidad;
+        document.getElementById("direccion").value = salon.direccion;
+        document.getElementById("descripcion").value = salon.descripcion;
+        document.getElementById("urlimagen").value = salon.imagen;
+
+        // Cambiamos el botón Guardar por un botón Actualizar
+        const guardarBtn = document.getElementById("guardar");
+        guardarBtn.textContent = "Actualizar";
+        guardarBtn.onclick = function() {
+            // Actualizamos los datos del salón
+            salon.nombre = document.getElementById("nombre").value;
+            salon.capacidad = document.getElementById("capacidad").value;
+            salon.direccion = document.getElementById("direccion").value;
+            salon.descripcion = document.getElementById("descripcion").value;
+            salon.imagen = document.getElementById("urlimagen").value;
+
+            // Guardamos los cambios en el localStorage
+            salones[index] = salon; // Reemplazamos el salón editado
+            localStorage.setItem("salones", JSON.stringify(salones));
+
+            // Limpiamos los campos del formulario
+            document.getElementById("nombre").value = "";
+            document.getElementById("capacidad").value = "";
+            document.getElementById("direccion").value = "";
+            document.getElementById("descripcion").value = "";
+            document.getElementById("urlimagen").value = "";
+
+            // Volvemos a listar los salones
+            listarSalones();
+
+            // Restauramos el texto del botón a "Guardar"
+            guardarBtn.textContent = "Guardar";
+        };
+    }
+}

@@ -100,24 +100,27 @@ function listarServicios(){
         const servicio = servicios[i];
         const fila = document.createElement("tr");
         fila.innerHTML = `
-            <td contenteditable="true">${servicio.nombre}</td>
-            <td contenteditable="true">${servicio.descripcion}</td>
-            <td contenteditable="true">
+            <td>${servicio.nombre}</td>
+            <td>${servicio.descripcion}</td>
+            <td>
                 <img src="${servicio.imagen}" alt="${servicio.nombre}" width="50px"></td>
             <td>
-                <button id="btnEliminar${i}" type="button" class="btn btn-sm btn-danger btn-eliminar">
+                <button class="btn btn-sm btn-danger btn-eliminar" onclick="eliminarServicio(${i})">
                 Eliminar </button>
-                <button id="btnModificar${i}" type="button" class="btn btn-sm btn-primary btn-success">
-                Guardar </button>
+                <button class="btn btn-sm btn-primary btn-success" onclick="editarServicio(${i})">
+                Editar </button>
             </td>
         `;
         tablaBody.appendChild(fila);
     }
 }
 
-// Event delegation para eliminar la fila al hacer clic en el botón Eliminar
-document.getElementById("tablaServiciosBody").addEventListener("click", (event) => {
-    if (event.target.classList.contains("btn-eliminar")) {
-        event.target.closest("tr").remove(); // Elimino la fila
+// Funcion para eliminar la fila al hacer clic en el botón Eliminar
+function eliminarServicio(index) {
+    const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    if (index >= 0 && index < servicios.length) {
+        servicios.splice(index, 1); 
+        localStorage.setItem("servicios", JSON.stringify(servicios));
+        listarServicios();
     }
-});
+}
