@@ -31,96 +31,105 @@ let serviciosDefecto = [
 //**************************************************************************************//
 //                              ADMINISTRACION DE SERVICIOS                             //
 //**************************************************************************************//
-//El usuario hizo click en el botón "Guardar"
-document.getElementById("guardar_srv").addEventListener("click", function() {
-    const nombre = document.getElementById("servicio").value;
-    const descripcion = document.getElementById("descripcion_srv").value;
-    const urlimagen = document.getElementById("urlimagen_srv").value;
-    
-    //validamos que los campos no estén vacíos
-    if (nombre === "" || descripcion === "" || urlimagen === "") {
+ // Inicializar salones por defecto si no existen
+    if (!localStorage.getItem("servicios")) {
+        localStorage.setItem("servicios", JSON.stringify(serviciosDefecto));
+    }
+
+    // Al cargar la página, muestra los salones en la tabla
+    listarServicios();
+
+    // Listeners
+    document.getElementById("guardar_srv").addEventListener("click", guardarServicio);
+    document.getElementById("listar_srv").addEventListener("click", listarServicios);
+
+// Guardar o actualizar salón
+function guardarServicio() {
+    const nombre = document.getElementById("servicio").value.trim();
+    const descripcion = document.getElementById("descripcion_srv").value.trim();
+    const urlimagen = document.getElementById("urlimagen_srv").value.trim();
+
+    if (!nombre || !descripcion || !urlimagen) {
         alert("Por favor, complete todos los campos.");
         return;
+    }
+
+    const nuevoServicio = {
+        nombre,
+        descripcion,
+        imagen: urlimagen
     };
-    
-    let nuevoServicio = [
-    {nombre: nombre, descripcion: descripcion, imagen: urlimagen }];
-    
-    const servicios_local = localStorage.getItem("servicios");
-    const servicios = JSON.parse(servicios_local);
-
-    if (servicios) {
-        //Si hay Servicios en el localStorage, concatenamos el nuevo servicio con los existentes
-        nuevoServicio = servicios.concat(nuevoServicio);
-    }
-
-    localStorage.setItem("servicios", JSON.stringify(nuevoServicio));
-    alert(`Datos del Servicio ${nombre} almacenados correctamente`);
-
-    //Limpiamos los campos del formulario
-    document.getElementById("servicio").value = "";
-    document.getElementById("descripcion_srv").value = "";
-    document.getElementById("urlimagen_srv").value = "";
-    
-    //Llamamos a la función para listar los servicios
-    listarServicios();
-});
-
-//El usuario hizo click en el botón "Listar"
-document.getElementById("listar_srv").addEventListener("click", function() {
-    //Si el usuario solo quiere ver los Servicios, mostramos los que hay por defecto (si no cargo ningúno).
-    let nuevoServicio = [];
-
-    const servicios_local = localStorage.getItem("servicios");
-    const servicios = JSON.parse(servicios_local);
-    if (servicios) {
-        //Si hay Servicios en el localStorage, les cargamos los Servicios por defecto
-        nuevoServicio = servicios.concat(serviciosDefecto);
+    // Obtiene los salones actuales del localStorage
+    let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    // Si estamos editando un salón que ya existe
+    if (modoEdicion && indiceEdicion >= 0) {
+        servicios[indiceEdicion] = nuevoServicio;
+        alert(`Servicio "${nombre}" actualizado correctamente.`);
+        modoEdicion = false;
+        indiceEdicion = -1;
+        document.getElementById("guardar_srv").textContent = "Guardar";
     } else {
-        //Si no hay Servicios en el localStorage, los cargamos con los servicios por defecto
-        nuevoServicio = serviciosDefecto;
+        // Verifica si ya existe un salón igual
+        const existe = servicios.some(s => s.nombre.toLowerCase() === nombre.toLowerCase());
+        if (existe) {
+            alert(`Ya existe un servicio con el nombre "${nombre}".`);
+            return;
+        }
+        servicios.push(nuevoServicio);
+        alert(`Servicio "${nombre}" agregado correctamente.`);
     }
 
-    //Eliminamos los Servicios que tienen el mismo nombre
-    let serviciosSinRepetidos = nuevoServicio.filter((obj, indice, self) =>
-    indice === self.findIndex((el) => el.nombre === obj.nombre) );
-
-    //Guardamos los servicios en el localStorage
-    localStorage.setItem("servicios", JSON.stringify(serviciosSinRepetidos));
+    localStorage.setItem("servicios", JSON.stringify(servicios));
+    document.getElementById("admServicios").reset();
     listarServicios();
-});
+}
 
-/*Función para Listar los Servicios */
-function listarServicios(){
+// Listar servicios
+function listarServicios() {
     const tablaBody = document.querySelector("#tablaServicios tbody");
-    
+    if (!tablaBody) return; // Si no encuentra la tabla, sale de la función
+
     tablaBody.innerHTML = "";
     const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
-    for (let i = 0; i < servicios.length; i++) {
-        const servicio = servicios[i];
+
+    servicios.forEach((servicio, i) => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
             <td>${servicio.nombre}</td>
             <td>${servicio.descripcion}</td>
-            <td>
-                <img src="${servicio.imagen}" alt="${servicio.nombre}" width="50px"></td>
-            <td>
-                <button class="btn btn-sm btn-danger btn-eliminar" onclick="eliminarServicio(${i})">
-                Eliminar </button>
-                <button class="btn btn-sm btn-primary btn-success" onclick="editarServicio(${i})">
-                Editar </button>
+            <td><img src="${servicio.imagen}" alt="${servicio.nombre}" width="50px"></td>
+            <td style="display:flex; gap:5px";>
+                <button class="btn btn-sm btn-danger" onclick="eliminarServicio(${i})">Eliminar</button>
+                <button class="btn btn-sm btn-success" onclick="editarServicio(${i})">Editar</button>
             </td>
         `;
         tablaBody.appendChild(fila);
+    });
+}
+
+// Eliminar servicios
+function eliminarServicio(index) {
+    let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    if (index >= 0 && index < servicios.length) {
+        servicios.splice(index, 1);
+        localStorage.setItem("servicios", JSON.stringify(servicios));
+        listarServicios();
     }
 }
 
-// Funcion para eliminar la fila al hacer clic en el botón Eliminar
-function eliminarServicio(index) {
-    const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+// Editar servicios
+function editarServicio(index) {
+    let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
     if (index >= 0 && index < servicios.length) {
-        servicios.splice(index, 1); 
-        localStorage.setItem("servicios", JSON.stringify(servicios));
-        listarServicios();
+        const servicio = servicios[index];
+        // Carga los datos del salón
+        document.getElementById("servicio").value = servicio.nombre;
+        document.getElementById("descripcion_srv").value = servicio.descripcion;
+        document.getElementById("urlimagen_srv").value = servicio.imagen;
+        // Activa modo edición
+        modoEdicion = true;
+        indiceEdicion = index;
+        // Cambia el botón para que diga "Actualizar"
+        document.getElementById("guardar_srv").textContent = "Actualizar";
     }
 }

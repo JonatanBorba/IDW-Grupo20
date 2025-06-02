@@ -105,7 +105,7 @@ function listarSalones() {
             <td>${salon.direccion}</td>
             <td>${salon.descripcion}</td>
             <td><img src="${salon.imagen}" alt="${salon.nombre}" width="50px"></td>
-            <td>
+            <td style="display:flex; gap:5px";>
                 <button class="btn btn-sm btn-danger" onclick="eliminarSalon(${i})">Eliminar</button>
                 <button class="btn btn-sm btn-success" onclick="editarSalon(${i})">Editar</button>
             </td>
