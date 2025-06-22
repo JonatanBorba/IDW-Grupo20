@@ -1,35 +1,15 @@
-/* Defino un array que va a tener salones por defecto */
-let salonesDefecto = [
-    { nombre: "El Bosque", capacidad: 50, direccion: "San Juan 425", descripcion: "Salon amplio y luminoso", imagen: "img/salon1.jpg" },
-    { nombre: "En Sueños", capacidad: 35, direccion: "Av. Eva Perón 2995", descripcion: "Salon con juegos y espacios blandos", imagen: "img/salon2.jpg" },
-    { nombre: "Bambino Park", capacidad: 80, direccion: "San Lorenzo (O) 677", descripcion: "Salon ideal para eventos de chicos", imagen: "img/salon3.jpg" },
-    { nombre: "Trampolin Park", capacidad: 70, direccion: "San Lorenzo (O) 621", descripcion: "Salon con camas elasticas", imagen: "img/salon4.jpg" },
-    { nombre: "EME Multiespacio", capacidad: 100, direccion: "Salto Uruguayo 1600", descripcion: "Salon para fiestas", imagen: "img/salon5.jpg" },
-    { nombre: "El Quincho", capacidad: 20, direccion: "Av. Eva Perón 2995", descripcion: "Salon con piscina y parrila", imagen: "img/salon6.jpg" },
-];
+//Tomamos los salones del LocalStorage
+let salones_lcl = JSON.parse(localStorage.getItem("salones")) || [];
+
+// Obtengo los servicios actuales del localStorage
+let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
 
 function cargarSalonesSelect() {
-    let salonesInicio = [];
-
-    const salones_local = localStorage.getItem("salones");
-    const salones_lcl = JSON.parse(salones_local);
-    if (salones_lcl) {
-        salonesInicio = salones_lcl;
-    } else {
-        localStorage.setItem("salones", JSON.stringify(salonesDefecto));
-        salonesInicio = salonesDefecto;
-    }
-
-    //Eliminamos los salones que tienen el mismo nombre
-    let salonesSinRepetidos = salonesInicio.filter((obj, indice, self) =>
-        indice === self.findIndex((el) => el.nombre === obj.nombre));
-
-
     const salonesSelect = document.getElementById("salonPresupuesto");
     salonesSelect.innerHTML = "";
-    // Este bucle evita duplicados porque usa un array previamente filtrado
-    for (let i = 0; i < salonesSinRepetidos.length; i++) {
-        const salon = salonesSinRepetidos[i];
+    //Cargamos los salones en OPtion del Select de la pagina presupuesto    
+    for (let i = 0; i < salones_lcl.length; i++) {
+        const salon = salones_lcl[i];
         const salonSel = document.createElement("option");
         salonSel.innerHTML = `
                 <option class="form-control" value="${salon.nombre}">${salon.nombre}</option>
@@ -39,10 +19,9 @@ function cargarSalonesSelect() {
 };
 
 function cargarServicios(){
-// Obtiene los servicios actuales del localStorage
-    let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
     const divServicios = document.getElementById("serviciosPresupuesto");
     divServicios.innerHTML="";
+   //Cargamos los servicios en varios checkbox dentro de presupuesto    
     servicios.forEach((servicio, i) => {
         const divServicio = document.createElement("div");
         divServicio.className="form-check";
@@ -56,29 +35,32 @@ function cargarServicios(){
 
 
 function calcularPresupuesto() {
-const salones = {
-  salonA: 50000,
-  salonB: 75000
-};
+    const salonSeleccionado = document.getElementById("salonPresupuesto").value;
+    let importeSalon = parseInt(salones_lcl.find(salon => salon.nombre === salonSeleccionado)["importe"]);
 
-const servicios = {
-  catering: 20000,
-  sonido: 10000,
-  iluminacion: 15000,
-  decoracion: 12000
-};
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const cbSeleccionados = Array.from(checkboxes);
+    
+    let total;
+    let importeServicios;
 
-const salonSeleccionado = document.getElementById("salonPresupuesto").value;
-let total = salones[salonSeleccionado];
+    for (let i = 0; i < cbSeleccionados.length; i++) {
+        for (let x = 0; x < servicios.length; x++) {
+            if (servicios[x].nombre === cbSeleccionados[i].value) {
+                importeServicios += parseInt(servicios[x].importe);
+                alert(parseInt(servicios[x].importe));
+                alert(parseInt(importeServicios));
+            }
+        }
+    }        
+    total = importeSalon + importeServicios;
+    alert("importe salon = " + importeSalon);
+    alert("Total Servicio = " +  importeServicios);
+//    alert(total);
 
-const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-checkboxes.forEach(cb => total += servicios[cb.value]);
-
-document.getElementById("resultadoPresupuesto").innerText = `Total estimado: $${total}`;
+    document.getElementById("resultadoPresupuesto").innerText = `Total estimado: $${importeSalon}`;
 }
 
 
-
 cargarSalonesSelect();
-
 cargarServicios();

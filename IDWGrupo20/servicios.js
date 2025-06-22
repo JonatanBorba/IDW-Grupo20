@@ -1,11 +1,11 @@
 /* Defino un array que va a tener Servicios por defecto */
 let serviciosDefecto = [
-    {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.", imagen: "img/servicio-catering.jpg"},
-    {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.", imagen: "img/servicios-barrat.jpg"},
-    {nombre: "Decoración", descripcion: "¿Estás sin tiempo? Nos encargamos de decorar el salón a tu gusto haciendo todavía más especial ese evento.", imagen: "img/servicio-decoracion.jpg"},
-    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.", imagen: "img/servicio-disckjock.jpg"},
-    {nombre: "Iluminación", descripcion: "Puesta escenográfica. Proyector de video con pantalla retráctil.", imagen: "img/servicio-iluminacion.jpg"},
-    {nombre: "Centros de Mesa", descripcion: "Centros de mesa personalizados acordes a la temática del cumpleaños, celebración o evento.", imagen: "img/servicio-centrom.jpg"},
+    {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.",importe:80000, imagen: "img/servicio-catering.jpg"},
+    {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.",importe:70000, imagen: "img/servicios-barrat.jpg"},
+    {nombre: "Decoración", descripcion: "¿Estás sin tiempo? Nos encargamos de decorar el salón a tu gusto haciendo todavía más especial ese evento.",importe:60000, imagen: "img/servicio-decoracion.jpg"},
+    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.",importe:80000, imagen: "img/servicio-disckjock.jpg"},
+    {nombre: "Iluminación", descripcion: "Puesta escenográfica. Proyector de video con pantalla retráctil.",importe:70000, imagen: "img/servicio-iluminacion.jpg"},
+    {nombre: "Centros de Mesa", descripcion: "Centros de mesa personalizados acordes a la temática del cumpleaños, celebración o evento.",importe:90000, imagen: "img/servicio-centrom.jpg"},
 ];
 // Variables para controlar si se está editando un salón y cuál es su índice en el array
 let modoEdicion = false;
@@ -49,9 +49,10 @@ document.addEventListener("DOMContentLoaded",() => {
 function guardarServicio() {
     const nombre = document.getElementById("servicio").value.trim();
     const descripcion = document.getElementById("descripcion_srv").value.trim();
+    const importe = document.getElementById("importe_srv").value.trim();
     const urlimagen = document.getElementById("urlimagen_srv").value.trim();
 
-    if (!nombre || !descripcion || !urlimagen) {
+    if (!nombre || !descripcion || !importe || !urlimagen) {
         alert("Por favor, complete todos los campos.");
         return;
     }
@@ -59,6 +60,7 @@ function guardarServicio() {
     const nuevoServicio = {
         nombre,
         descripcion,
+        importe,
         imagen: urlimagen
     };
     // Obtiene los servicios actuales del localStorage
@@ -99,6 +101,7 @@ function listarServicios() {
         fila.innerHTML = `
             <td>${servicio.nombre}</td>
             <td>${servicio.descripcion}</td>
+            <td>${servicio.importe}</td>            
             <td><img src="${servicio.imagen}" alt="${servicio.nombre}" width="50px"></td>
             <td>
                 <button class="btn btn-sm btn-danger" onclick="eliminarServicio(${i})">Eliminar</button>
@@ -127,6 +130,7 @@ function editarServicio(index) {
         // Carga los datos del servicios
         document.getElementById("servicio").value = servicio.nombre;
         document.getElementById("descripcion_srv").value = servicio.descripcion;
+        document.getElementById("importe_srv").value = servicio.importe;
         document.getElementById("urlimagen_srv").value = servicio.imagen;
         // Activa modo edición
         modoEdicion = true;
