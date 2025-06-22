@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css" type="text/css" media="screen">
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon">
+    <title>Arma tú Presupuesto</title>
+</head>
+<body>
+<header>
+    <!-- Imagen y Logo-->
+    <ul class="imagenEmpresa">
+        <li><h1>IDW</h1>
+        <li><img src="img/Logo.png" alt="IDW Logo" class="logo"></li>
+        <li><h1>SALONES</h1></li>
+    </ul>
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid menu">
+            <a class="navbar-brand" href="index.html">
+                <img class="logo" src="img/Logo.png" alt="Logo" width="40" height="40"> 
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="institucional.html">Institucional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Acceder</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header> 
+<main>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Arma un Presupuesto a tú medida</h2>
+        <form>
+            <div class="mb-3">
+                <label for="salonPresupuesto" class="form-label">Seleccione el Salón</label>
+                <select id="salonPresupuesto">
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre y Apellido</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Escriba su Nombre y Apellido">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" placeholder="tucorreo@email.com" >
+            </div>
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha de reserva del salón</label>
+                <input type="date" class="form-control" id="fecha">
+            </div>
+            <div id="serviciosPresupuesto">
+            </div>
+            <button onclick="calcularPresupuesto()" class="btn btn-primary w-20">Calcular Presupuesto</button>
+        </form>
+        <div id="resultadoPresupuesto"></div>
+    </div>
+</main>   
+    <!-- Pie del sitio -->
+<footer class="bg-light text-center py-3">
+    <div class="container-fluid">
+        <ul class="mb-0 ftr_sitio">
+            <li><p>&copy; 2025 IDW - Grupo20.</p></li>
+            <li>
+                <a href="https://facebook.com">
+                    <img src="img/facebook.png" alt="Facebook">
+                </a>
+            </li>
+            <li>
+                <a href="https://x.com">
+                    <img src="img/X.png" alt="X">
+                </a>
+            </li>
+            <li>
+                <a href="https://instagram.com">
+                    <img src="img/instagram.png" alt="Instagram">
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="presupuesto.js"></script>
+</body>
+
+</html>
