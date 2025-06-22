@@ -37,8 +37,8 @@ function cargarServicios() {
             <div class="card">
                 <img src="${servicio.imagen}" class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">servicio: ${servicio.nombre}</h5>
-                    <p class="card-text">descripcion: ${servicio.descripcion}</p>
+                    <h5 class="card-title">Servicio: ${servicio.nombre}</h5>
+                    <p class="card-text">Descripcion: ${servicio.descripcion}</p>
                 </div>
             </div>
         `;
