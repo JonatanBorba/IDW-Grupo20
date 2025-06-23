@@ -58,4 +58,4 @@ function mostrarSalones(){
         tablaBody.appendChild(fila);
     });
 
-}
+};

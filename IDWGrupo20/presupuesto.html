@@ -54,7 +54,7 @@
         <form>
             <div class="mb-3">
                 <label for="salonPresupuesto" class="form-label">Seleccione el Salón</label>
-                <select id="salonPresupuesto">
+                <select id="salonPresupuesto" autofocus>
                 </select>
             </div>
             <div class="mb-3">
@@ -71,8 +71,9 @@
             </div>
             <div id="serviciosPresupuesto">
             </div>
-            <button onclick="calcularPresupuesto()" class="btn btn-primary w-20">Calcular Presupuesto</button>
+            <button id="calcularPresupuesto" class="btn btn-primary w-20">Calcular Presupuesto</button>
         </form>
+        
         <div id="resultadoPresupuesto"></div>
     </div>
 </main>   
@@ -101,7 +102,7 @@
 </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="presupuesto.js"></script>
+    <script src="presupuesto.js"></script>
 </body>
 
 </html>

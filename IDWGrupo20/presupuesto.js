@@ -41,26 +41,46 @@ function calcularPresupuesto() {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
     const cbSeleccionados = Array.from(checkboxes);
     
-    let total;
-    let importeServicios;
+    let total = 0;
+    let importeServicios = 0;
 
-    for (let i = 0; i < cbSeleccionados.length; i++) {
-        for (let x = 0; x < servicios.length; x++) {
-            if (servicios[x].nombre === cbSeleccionados[i].value) {
-                importeServicios += parseInt(servicios[x].importe);
-                alert(parseInt(servicios[x].importe));
-                alert(parseInt(importeServicios));
-            }
-        }
-    }        
+    cbSeleccionados.forEach(checkbox => {
+            const servicio = servicios.find(s => s.nombre === checkbox.value);
+            if (servicio) importeServicios += parseInt(servicio.importe);
+        });
+
     total = importeSalon + importeServicios;
-    alert("importe salon = " + importeSalon);
-    alert("Total Servicio = " +  importeServicios);
-//    alert(total);
+    muestroResultados(salonSeleccionado, cbSeleccionados, total);
+};
 
-    document.getElementById("resultadoPresupuesto").innerText = `Total estimado: $${importeSalon}`;
-}
+function muestroResultados(salon, servicios, importePresupuesto){
+// Mostrar el presupuesto
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const fecha = document.getElementById('fecha').value;
+    console.log(servicios);    
+    alert(salon);
 
+    const resultado = document.getElementById('resultadoPresupuesto');
+    resultado.innerHTML = `
+      <div class="mt-4">
+        <h4>Resumen del Presupuesto</h4>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Fecha de reserva:</strong> ${fecha}</p>
+        <p><strong>Salón elegido:</strong> ${salon}</p>
+        <h5>Servicios seleccionados:</h5>
+        <ul>
+          ${servicios.map(s => `<li>${s.nombre}</li>`).join('')}
+        </ul>
+        <p><strong>Total estimado:</strong> $${importePresupuesto.toLocaleString()}</p>
+      </div>
+    `;
+};
 
 cargarSalonesSelect();
 cargarServicios();
+
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("calcularPresupuesto").addEventListener("click", calcularPresupuesto);
+});
