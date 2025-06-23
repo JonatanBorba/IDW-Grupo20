@@ -7,6 +7,7 @@ let salonesDefecto = [
     { nombre: "EME Multiespacio", capacidad: 100, direccion: "Salto Uruguayo 1600", descripcion: "Salón para fiestas", imagen: "img/salon5.jpg", precio: 600000 },
     { nombre: "El Quincho", capacidad: 20, direccion: "Av. Eva Perón 2995", descripcion: "Salón con piscina y parrilla", imagen: "img/salon6.jpg", precio: 150000 },
 ];
+
 // Variables para controlar si se está editando un salón y cuál es su índice en el array
 let modoEdicion = false;
 let indiceEdicion = -1;
@@ -52,8 +53,9 @@ function guardarSalon() {
     const direccion = document.getElementById("direccion").value.trim();
     const descripcion = document.getElementById("descripcion").value.trim();
     const urlimagen = document.getElementById("urlimagen").value.trim();
+    const precio = Number(document.getElementById("precio").value); // 🆕 nuevo campo
 
-    if (!nombre || !capacidad || !direccion || !descripcion || !urlimagen) {
+    if (!nombre || !capacidad || !direccion || !descripcion || !urlimagen || isNaN(precio)) {
         alert("Por favor, complete todos los campos.");
         return;
     }
@@ -63,10 +65,13 @@ function guardarSalon() {
         capacidad,
         direccion,
         descripcion,
-        imagen: urlimagen
+        imagen: urlimagen,
+        precio // 🆕 incluir precio
     };
+
     // Obtiene los salones actuales del localStorage
     let salones = JSON.parse(localStorage.getItem("salones")) || [];
+
     // Si estamos editando un salón que ya existe
     if (modoEdicion && indiceEdicion >= 0) {
         salones[indiceEdicion] = nuevoSalon;
@@ -135,6 +140,7 @@ function editarSalon(index) {
         document.getElementById("direccion").value = salon.direccion;
         document.getElementById("descripcion").value = salon.descripcion;
         document.getElementById("urlimagen").value = salon.imagen;
+        document.getElementById("precio").value = salon.precio; // 🆕 cargar precio
         // Activa modo edición
         modoEdicion = true;
         indiceEdicion = index;
