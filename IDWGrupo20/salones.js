@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const salir = document.getElementById("salir");
     if (salir) {
         salir.addEventListener("click", () => {
-            sessionStorage.clear();
-            localStorage.clear();
+            //sessionStorage.clear();
+            //localStorage.clear();
             window.location.href = "index.html";
         });
     }
@@ -53,7 +53,7 @@ function guardarSalon() {
     const direccion = document.getElementById("direccion").value.trim();
     const descripcion = document.getElementById("descripcion").value.trim();
     const urlimagen = document.getElementById("urlimagen").value.trim();
-    const precio = Number(document.getElementById("precio").value); // 🆕 nuevo campo
+    const precio = Number(document.getElementById("precio").value);  
 
     if (!nombre || !capacidad || !direccion || !descripcion || !urlimagen || isNaN(precio)) {
         alert("Por favor, complete todos los campos.");
@@ -66,7 +66,7 @@ function guardarSalon() {
         direccion,
         descripcion,
         imagen: urlimagen,
-        precio // 🆕 incluir precio
+        precio 
     };
 
     // Obtiene los salones actuales del localStorage
@@ -140,7 +140,7 @@ function editarSalon(index) {
         document.getElementById("direccion").value = salon.direccion;
         document.getElementById("descripcion").value = salon.descripcion;
         document.getElementById("urlimagen").value = salon.imagen;
-        document.getElementById("precio").value = salon.precio; // 🆕 cargar precio
+        document.getElementById("precio").value = salon.precio;
         // Activa modo edición
         modoEdicion = true;
         indiceEdicion = index;

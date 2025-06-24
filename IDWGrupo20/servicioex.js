@@ -3,7 +3,7 @@ let serviciosDefecto = [
     {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.", imagen: "img/servicio-catering.jpg", precio:3800},
     {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.", imagen: "img/servicios-barrat.jpg", precio: 2600},
     {nombre: "Decoración", descripcion: "¿Estás sin tiempo? Nos encargamos de decorar el salón a tu gusto haciendo todavía más especial ese evento.", imagen: "img/servicio-decoracion.jpg", precio:450000},
-    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.", imagen: "img/servicio-disckjock.jpg", prcio: 200000},
+    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.", imagen: "img/servicio-disckjock.jpg", precio: 200000},
     {nombre: "Iluminación", descripcion: "Puesta escenográfica. Proyector de video con pantalla retráctil.", imagen: "img/servicio-iluminacion.jpg", precio:150000},
     {nombre: "Centros de Mesa", descripcion: "Centros de mesa personalizados acordes a la temática del cumpleaños, celebración o evento.", imagen: "img/servicio-centrom.jpg", precio:80000},
 ];

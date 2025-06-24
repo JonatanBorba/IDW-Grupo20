@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded",() => {
 
     if(salir){
         salir.addEventListener("click", ()=>{
-            sessionStorage.clear();
-            localStorage.clear();
+            //sessionStorage.clear();
+            //localStorage.clear();
             window.location.href = "index.html";
         });
         }
@@ -28,15 +28,20 @@ const serviciosDefecto = [
   { nombre: "Centros de Mesa", descripcion: "Centros personalizados.", imagen: "img/servicio-centrom.jpg", precio: 80000 }
 ];
 
+
+// Variables para controlar si se está editando un salón y cuál es su índice en el array
+let modoEdicion = false;
+let indiceEdicion = -1;
+
 //**************************************************************************************//
 //                              ADMINISTRACION DE SERVICIOS                             //
 //**************************************************************************************//
- // Inicializar salones por defecto si no existen
+ // Inicializar servicios por defecto si no existen
     if (!localStorage.getItem("servicios")) {
         localStorage.setItem("servicios", JSON.stringify(serviciosDefecto));
     }
 
-    // Al cargar la página, muestra los salones en la tabla
+    // Al cargar la página, muestra los servicios en la tabla
     listarServicios();
 
     // Listeners
@@ -48,8 +53,9 @@ function guardarServicio() {
     const nombre = document.getElementById("servicio").value.trim();
     const descripcion = document.getElementById("descripcion_srv").value.trim();
     const urlimagen = document.getElementById("urlimagen_srv").value.trim();
+    const precio = Number(document.getElementById("precio_srv").value); 
 
-    if (!nombre || !descripcion || !urlimagen) {
+    if (!nombre || !descripcion || !urlimagen|| isNaN(precio)) {
         alert("Por favor, complete todos los campos.");
         return;
     }
@@ -57,11 +63,12 @@ function guardarServicio() {
     const nuevoServicio = {
         nombre,
         descripcion,
-        imagen: urlimagen
+        imagen: urlimagen,
+        precio
     };
-    // Obtiene los salones actuales del localStorage
+    // Obtiene los servicios actuales del localStorage
     let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
-    // Si estamos editando un salón que ya existe
+    // Si estamos editando un servicio que ya existe
     if (modoEdicion && indiceEdicion >= 0) {
         servicios[indiceEdicion] = nuevoServicio;
         alert(`Servicio "${nombre}" actualizado correctamente.`);
@@ -69,7 +76,7 @@ function guardarServicio() {
         indiceEdicion = -1;
         document.getElementById("guardar_srv").textContent = "Guardar";
     } else {
-        // Verifica si ya existe un salón igual
+        // Verifica si ya existe un servicio igual
         const existe = servicios.some(s => s.nombre.toLowerCase() === nombre.toLowerCase());
         if (existe) {
             alert(`Ya existe un servicio con el nombre "${nombre}".`);
@@ -126,6 +133,7 @@ function editarServicio(index) {
         document.getElementById("servicio").value = servicio.nombre;
         document.getElementById("descripcion_srv").value = servicio.descripcion;
         document.getElementById("urlimagen_srv").value = servicio.imagen;
+        document.getElementById("precio_srv").value = servicio.precio;        
 
         // Activa modo edición
         modoEdicion = true;
