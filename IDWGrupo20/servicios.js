@@ -88,6 +88,7 @@ function guardarServicio() {
 
     localStorage.setItem("servicios", JSON.stringify(servicios));
     document.getElementById("admServicios").reset();
+
         // Verifica si ya existe un servicio igual
         const existe = servicios.some(s => s.nombre.toLowerCase() === nombre.toLowerCase());
         if (existe) {
@@ -96,13 +97,13 @@ function guardarServicio() {
         }
         servicios.push(nuevoServicio);
         alert(`Servicio "${nombre}" agregado correctamente.`);
-    }
+    
 
     localStorage.setItem("servicios", JSON.stringify(servicios));
     document.getElementById("admServicios").reset();
     listarServicios();
 }
-}
+
 
 // Listar servicios
 function listarServicios() {
@@ -134,7 +135,6 @@ function listarServicios() {
 
 // Eliminar servicios
 function eliminarServicio(index) {
-    let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
     let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
     if (index >= 0 && index < servicios.length) {
         servicios.splice(index, 1);
