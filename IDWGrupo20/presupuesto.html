@@ -53,18 +53,40 @@
         </div>
     </nav>
     </header> 
-    <main>
-        <form id="formularioAcceso" style="width: 50%; margin: 0 auto;">
-            <div class="mb-3">
-                <label for="usuario" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usuario" placeholder="Usuario" autofocus required />
+    <main class="container my-4">
+    <h2 class="text-center mb-4">Presupuesto</h2>
+
+    <div class="mb-3">
+        <label for="cantidadPersonas" class="form-label">¿Para cuántas personas es el evento?</label>
+        <input type="number" id="cantidadPersonas" class="form-control" min="1" placeholder="Ej: 100">
+    </div>
+
+    <h4 class="mt-5">Salones disponibles</h4>
+    <div class="row g-4 justify-content-center" id="contenedorSalones"></div>
+
+    <h4 class="mt-5">Servicios adicionales</h4>
+    <div class="row g-4 justify-content-center" id="contenedorServicios"></div>
+
+    <div class="text-center my-4">
+        <button class="btn btn-primary" id="calcularPresupuesto">Calcular Presupuesto</button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalPresupuesto" tabindex="-1">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Resumen del Presupuesto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="mb-3">
-                <label for="contrasena" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="contrasena" placeholder="Contraseña"required />
+            <div class="modal-body" id="resumenPresupuesto"></div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <a href="contacto.html" class="btn btn-primary">Contactar</a>
             </div>
-            <button type="submit" class="btn btn-primary">Ingresar</button>
-        </form>
+        </div>
+        </div>
+    </div>
     </main>
 
     <footer class="bg-light text-center py-3">
@@ -89,8 +111,8 @@
             </ul>
         </div>
     </footer>
-
-    <script  type="module" src="login.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="presupuesto.js"></script>
 </body>
 
 </html>

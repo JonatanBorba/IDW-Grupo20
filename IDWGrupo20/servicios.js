@@ -1,12 +1,34 @@
+//Seccion del Loguin
+document.addEventListener("DOMContentLoaded",() => {
+
+    if(!sessionStorage.getItem("usuario")){
+                alert("Usted debe iniciar sesión para acceder a esta página")
+                window.location.href = "login.html"; 
+                return    
+            } 
+
+    const salir = document.querySelector(".btn-danger");
+
+    if(salir){
+        salir.addEventListener("click", ()=>{
+            //sessionStorage.clear();
+            //localStorage.clear();
+            window.location.href = "index.html";
+        });
+        }
+});
+
 /* Defino un array que va a tener Servicios por defecto */
-let serviciosDefecto = [
-    {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.", imagen: "img/servicio-catering.jpg"},
-    {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.", imagen: "img/servicios-barrat.jpg"},
-    {nombre: "Decoración", descripcion: "¿Estás sin tiempo? Nos encargamos de decorar el salón a tu gusto haciendo todavía más especial ese evento.", imagen: "img/servicio-decoracion.jpg"},
-    {nombre: "Disc Jockey", descripcion: "Reproducción de música durante todo el evento. Animación.", imagen: "img/servicio-disckjock.jpg"},
-    {nombre: "Iluminación", descripcion: "Puesta escenográfica. Proyector de video con pantalla retráctil.", imagen: "img/servicio-iluminacion.jpg"},
-    {nombre: "Centros de Mesa", descripcion: "Centros de mesa personalizados acordes a la temática del cumpleaños, celebración o evento.", imagen: "img/servicio-centrom.jpg"},
+const serviciosDefecto = [
+  { nombre: "Catering Profesional", descripcion: "Catering completo para tu evento.", imagen: "img/servicio-catering.jpg", precio: 3800 },
+  { nombre: "Barra de tragos", descripcion: "Tragos personalizados durante el evento.", imagen: "img/servicios-barrat.jpg", precio: 2600 },
+  { nombre: "Decoración", descripcion: "Decoración temática a tu gusto.", imagen: "img/servicio-decoracion.jpg", precio: 450000 },
+  { nombre: "Disc Jockey", descripcion: "DJ profesional con animación.", imagen: "img/servicio-disckjock.jpg", precio: 200000 },
+  { nombre: "Iluminación", descripcion: "Luces LED y proyector.", imagen: "img/servicio-iluminacion.jpg", precio: 150000 },
+  { nombre: "Centros de Mesa", descripcion: "Centros personalizados.", imagen: "img/servicio-centrom.jpg", precio: 80000 }
 ];
+
+
 // Variables para controlar si se está editando un salón y cuál es su índice en el array
 let modoEdicion = false;
 let indiceEdicion = -1;
@@ -14,44 +36,26 @@ let indiceEdicion = -1;
 //**************************************************************************************//
 //                              ADMINISTRACION DE SERVICIOS                             //
 //**************************************************************************************//
-//Seccion del Loguin
-document.addEventListener("DOMContentLoaded",() => {
-    // Verificación de sesión
-    if(!sessionStorage.getItem("usuario")){
-                alert("Usted debe iniciar sesión para acceder a esta página")
-                window.location.href = "login.html"; 
-                return    
-            } 
-
-    // Botón salir
-    const salir = document.getElementById("salir_srv");
-    if(salir){
-        salir.addEventListener("click", ()=>{
-            sessionStorage.clear();
-            localStorage.clear();
-            window.location.href = "index.html";
-        });
-        }
-    // Inicializar Servicios por defecto si no existen
+ // Inicializar servicios por defecto si no existen
     if (!localStorage.getItem("servicios")) {
         localStorage.setItem("servicios", JSON.stringify(serviciosDefecto));
     }
 
-    // Al cargar la página, muestra los Servicios en la tabla
+    // Al cargar la página, muestra los servicios en la tabla
     listarServicios();
 
     // Listeners
     document.getElementById("guardar_srv").addEventListener("click", guardarServicio);
     document.getElementById("listar_srv").addEventListener("click", listarServicios);
-});
 
-// Guardar o actualizar Servicio
+// Guardar o actualizar servicio
 function guardarServicio() {
     const nombre = document.getElementById("servicio").value.trim();
     const descripcion = document.getElementById("descripcion_srv").value.trim();
     const urlimagen = document.getElementById("urlimagen_srv").value.trim();
+    const precio = Number(document.getElementById("precio_srv").value); 
 
-    if (!nombre || !descripcion || !urlimagen) {
+    if (!nombre || !descripcion || !urlimagen|| isNaN(precio)) {
         alert("Por favor, complete todos los campos.");
         return;
     }
@@ -59,7 +63,8 @@ function guardarServicio() {
     const nuevoServicio = {
         nombre,
         descripcion,
-        imagen: urlimagen
+        imagen: urlimagen,
+        precio
     };
     // Obtiene los servicios actuales del localStorage
     let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
@@ -83,16 +88,33 @@ function guardarServicio() {
 
     localStorage.setItem("servicios", JSON.stringify(servicios));
     document.getElementById("admServicios").reset();
+        // Verifica si ya existe un servicio igual
+        const existe = servicios.some(s => s.nombre.toLowerCase() === nombre.toLowerCase());
+        if (existe) {
+            alert(`Ya existe un servicio con el nombre "${nombre}".`);
+            return;
+        }
+        servicios.push(nuevoServicio);
+        alert(`Servicio "${nombre}" agregado correctamente.`);
+    }
+
+    localStorage.setItem("servicios", JSON.stringify(servicios));
+    document.getElementById("admServicios").reset();
     listarServicios();
 }
+}
 
-// Listar Servicios
+// Listar servicios
 function listarServicios() {
     const tablaBody = document.querySelector("#tablaServicios tbody");
     if (!tablaBody) return; // Si no encuentra la tabla, sale de la función
 
+    if (!tablaBody) return; // Si no encuentra la tabla, sale de la función
+
     tablaBody.innerHTML = "";
     const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+
+    servicios.forEach((servicio, i) => {
 
     servicios.forEach((servicio, i) => {
         const fila = document.createElement("tr");
@@ -100,34 +122,39 @@ function listarServicios() {
             <td>${servicio.nombre}</td>
             <td>${servicio.descripcion}</td>
             <td><img src="${servicio.imagen}" alt="${servicio.nombre}" width="50px"></td>
-            <td>
+            <td style="display:flex; gap:5px";>
                 <button class="btn btn-sm btn-danger" onclick="eliminarServicio(${i})">Eliminar</button>
                 <button class="btn btn-sm btn-success" onclick="editarServicio(${i})">Editar</button>
             </td>
         `;
         tablaBody.appendChild(fila);
     });
+    });
 }
 
-// Eliminar Servicio
+// Eliminar servicios
 function eliminarServicio(index) {
     let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
     if (index >= 0 && index < servicios.length) {
+        servicios.splice(index, 1);
         servicios.splice(index, 1);
         localStorage.setItem("servicios", JSON.stringify(servicios));
         listarServicios();
     }
 }
 
-// Editar Servicio
+// Editar servicios
 function editarServicio(index) {
     let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
     if (index >= 0 && index < servicios.length) {
         const servicio = servicios[index];
-        // Carga los datos del servicios
+        // Carga los datos del salón
         document.getElementById("servicio").value = servicio.nombre;
         document.getElementById("descripcion_srv").value = servicio.descripcion;
         document.getElementById("urlimagen_srv").value = servicio.imagen;
+        document.getElementById("precio_srv").value = servicio.precio;        
+
         // Activa modo edición
         modoEdicion = true;
         indiceEdicion = index;
