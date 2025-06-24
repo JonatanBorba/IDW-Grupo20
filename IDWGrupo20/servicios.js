@@ -88,7 +88,20 @@ function guardarServicio() {
 
     localStorage.setItem("servicios", JSON.stringify(servicios));
     document.getElementById("admServicios").reset();
+        // Verifica si ya existe un servicio igual
+        const existe = servicios.some(s => s.nombre.toLowerCase() === nombre.toLowerCase());
+        if (existe) {
+            alert(`Ya existe un servicio con el nombre "${nombre}".`);
+            return;
+        }
+        servicios.push(nuevoServicio);
+        alert(`Servicio "${nombre}" agregado correctamente.`);
+    }
+
+    localStorage.setItem("servicios", JSON.stringify(servicios));
+    document.getElementById("admServicios").reset();
     listarServicios();
+}
 }
 
 // Listar servicios
@@ -96,8 +109,12 @@ function listarServicios() {
     const tablaBody = document.querySelector("#tablaServicios tbody");
     if (!tablaBody) return; // Si no encuentra la tabla, sale de la función
 
+    if (!tablaBody) return; // Si no encuentra la tabla, sale de la función
+
     tablaBody.innerHTML = "";
     const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+
+    servicios.forEach((servicio, i) => {
 
     servicios.forEach((servicio, i) => {
         const fila = document.createElement("tr");
@@ -112,12 +129,15 @@ function listarServicios() {
         `;
         tablaBody.appendChild(fila);
     });
+    });
 }
 
 // Eliminar servicios
 function eliminarServicio(index) {
     let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
     if (index >= 0 && index < servicios.length) {
+        servicios.splice(index, 1);
         servicios.splice(index, 1);
         localStorage.setItem("servicios", JSON.stringify(servicios));
         listarServicios();

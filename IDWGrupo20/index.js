@@ -14,7 +14,7 @@ function cargarSalones() {
     const salones_local = localStorage.getItem("salones");
     const salones_lcl = JSON.parse(salones_local);
     if (salones_lcl) {
-        salonesInicio = salones_lcl;
+        salonesInicio = salones_lcl; //
     } else {
         localStorage.setItem("salones", JSON.stringify(salonesDefecto));
         salonesInicio = salonesDefecto;
