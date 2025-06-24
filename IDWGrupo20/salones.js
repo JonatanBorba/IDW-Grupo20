@@ -10,6 +10,8 @@ let salonesDefecto = [
 // Variables para controlar si se está editando un salón y cuál es su índice en el array
 let modoEdicion = false;
 let indiceEdicion = -1;
+//Variable global para los salones en memoria
+let salones = [];
 
 //**************************************************************************************//
 //                              ADMINISTRACION DE SALONES                               //
@@ -27,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (salir) {
         salir.addEventListener("click", () => {
             sessionStorage.clear();
-            localStorage.clear();
             window.location.href = "index.html";
         });
     }
