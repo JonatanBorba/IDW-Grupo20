@@ -20,7 +20,7 @@
         </ul>
 
     <!-- Barra de Navegación de Administrador-->    
-    <nav class="navbar navbar-expand-lg bg-light">
+     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid menu">
             <a class="navbar-brand" href="index.html">
                 <img class="logo" src="img/Logo.png" alt="Logo" width="40" height="40"> 
@@ -31,10 +31,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" id="muestroFormSalones" href="altaSalon.html">Salones</a> 
+                        <a class="nav-link" id="muestroFormSalones" href="index.html">Salones</a> 
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="muestroFormServicios" href="altaServicios.html">Servicios</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="usuarios.html">Usuarios</a>
                     </li>
                 </ul>
             </div>
@@ -64,7 +67,7 @@
                     <div class="mb-3">
                         <label for="precio_srv" class="form-label">Precio del Servicio ($)</label>
                         <input type="number" class="form-control" id="precio_srv" placeholder="35000" required/>
-                    </div>
+                   
                 </fieldset>
                 <button type="button" class="btn btn-primary" id="guardar_srv">Guardar</button>
                 <button type="button" class="btn btn-primary" id="listar_srv">Listar</button>

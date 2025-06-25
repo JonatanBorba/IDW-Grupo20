@@ -1,3 +1,4 @@
+
 //Seccion del Loguin
 document.addEventListener("DOMContentLoaded",() => {
 
@@ -32,6 +33,7 @@ const serviciosDefecto = [
 // Variables para controlar si se está editando un salón y cuál es su índice en el array
 let modoEdicion = false;
 let indiceEdicion = -1;
+let servicios = [];
 
 //**************************************************************************************//
 //                              ADMINISTRACION DE SERVICIOS                             //
@@ -68,6 +70,7 @@ function guardarServicio() {
     };
     // Obtiene los servicios actuales del localStorage
     let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    
     // Si estamos editando un servicio que ya existe
     if (modoEdicion && indiceEdicion >= 0) {
         servicios[indiceEdicion] = nuevoServicio;
@@ -89,18 +92,6 @@ function guardarServicio() {
     localStorage.setItem("servicios", JSON.stringify(servicios));
     document.getElementById("admServicios").reset();
 
-        // Verifica si ya existe un servicio igual
-        const existe = servicios.some(s => s.nombre.toLowerCase() === nombre.toLowerCase());
-        if (existe) {
-            alert(`Ya existe un servicio con el nombre "${nombre}".`);
-            return;
-        }
-        servicios.push(nuevoServicio);
-        alert(`Servicio "${nombre}" agregado correctamente.`);
-    
-
-    localStorage.setItem("servicios", JSON.stringify(servicios));
-    document.getElementById("admServicios").reset();
     listarServicios();
 }
 
@@ -116,8 +107,6 @@ function listarServicios() {
     const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
 
     servicios.forEach((servicio, i) => {
-
-    servicios.forEach((servicio, i) => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
             <td>${servicio.nombre}</td>
@@ -130,14 +119,13 @@ function listarServicios() {
         `;
         tablaBody.appendChild(fila);
     });
-    });
+    
 }
 
 // Eliminar servicios
 function eliminarServicio(index) {
     let servicios = JSON.parse(localStorage.getItem("servicios")) || [];
     if (index >= 0 && index < servicios.length) {
-        servicios.splice(index, 1);
         servicios.splice(index, 1);
         localStorage.setItem("servicios", JSON.stringify(servicios));
         listarServicios();

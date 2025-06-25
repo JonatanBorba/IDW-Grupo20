@@ -1,4 +1,4 @@
-/* Defino un array que va a tener Servicios por defecto */
+/* Defino un array que va a tener Servicios por defecto*/
 let serviciosDefecto = [
     {nombre: "Catering Profesional", descripcion: "Nos encargamos de realizar todo el catering de tu evento de forma profesional, para que vos disfrutes.", imagen: "img/servicio-catering.jpg", precio:3800},
     {nombre: "Barra de tragos", descripcion: "Realizamos tragos durante el evento con nuestra barra de tragos. Hacé tu evento inolvidable.", imagen: "img/servicios-barrat.jpg", precio: 2600},
